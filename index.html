@@ -1,239 +1,191 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Nisarg Patel | Flutter Developer</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-
   <style>
-    * { margin:0; padding:0; box-sizing:border-box; font-family:"Poppins",sans-serif; }
-    body { background:#0a192f; color:#fff; line-height:1.6; scroll-behavior:smooth; }
+    * {margin:0;padding:0;box-sizing:border-box;font-family: 'Segoe UI', sans-serif;}
+    body {background:#0a192f;color:#ccd6f6;line-height:1.6;}
+    a {text-decoration:none;color:inherit;}
+    header {
+      position:fixed;top:0;left:0;width:100%;
+      background:#0a192f;padding:20px 50px;display:flex;
+      justify-content:space-between;align-items:center;
+      z-index:1000;box-shadow:0 2px 8px rgba(0,0,0,0.3);
+    }
+    header h1 {color:#64ffda;font-size:1.5rem;}
+    nav a {
+      margin-left:20px;font-weight:bold;color:#ccd6f6;
+      transition:color 0.3s;
+    }
+    nav a:hover {color:#64ffda;}
 
-    /* ==== HERO SECTION ==== */
     .hero {
-      height:100vh; display:flex; flex-direction:column;
-      align-items:center; justify-content:center; text-align:center;
-      padding:20px; background:linear-gradient(135deg,#0a192f,#112f4d);
+      height:100vh;display:flex;flex-direction:column;
+      justify-content:center;align-items:center;
+      text-align:center;padding:20px;
     }
-    .hero h1 { font-size:3.5rem; margin-bottom:10px; color:#64ffda; }
-    .hero h2 { font-size:1.5rem; font-weight:400; margin-bottom:25px; color:#e6f1ff; }
-    .hero img {
-      width:160px; height:160px; border-radius:50%; margin-bottom:25px;
-      border:5px solid #64ffda; box-shadow:0 8px 20px rgba(0,0,0,0.4);
+    .hero h2 {font-size:2.5rem;color:#64ffda;margin-bottom:10px;}
+    .hero h3 {font-size:1.8rem;margin-bottom:20px;}
+    .hero p {max-width:600px;margin:auto;margin-bottom:30px;}
+    .hero .btn {
+      display:inline-block;padding:12px 25px;
+      border:2px solid #64ffda;border-radius:5px;
+      color:#64ffda;font-weight:bold;transition:0.3s;
     }
-    .btn {
-      display:inline-block; margin:10px; padding:12px 30px;
-      border-radius:30px; background:#64ffda; color:#0a192f;
-      font-weight:600; text-decoration:none; transition:0.3s;
-    }
-    .btn:hover { background:#fff; transform:translateY(-3px); }
+    .hero .btn:hover {background:#64ffda;color:#0a192f;}
 
-    /* ==== SECTIONS ==== */
-    section { padding:80px 20px; max-width:1100px; margin:auto; }
-    section h2 {
-      text-align:center; font-size:2.5rem; margin-bottom:40px;
-      position:relative; color:#64ffda;
-    }
+    section {padding:80px 20px;max-width:1100px;margin:auto;}
+    section h2 {font-size:2rem;color:#64ffda;text-align:center;margin-bottom:40px;position:relative;}
     section h2::after {
-      content:""; width:80px; height:4px; background:#64ffda;
-      display:block; margin:12px auto 0; border-radius:2px;
+      content:"";display:block;width:60px;height:3px;
+      background:#64ffda;margin:10px auto;
     }
 
-    /* ==== ABOUT ==== */
-    .about p {
-      max-width:800px; margin:auto; font-size:1.1rem;
-      color:#ccd6f6; text-align:center;
+    .about {display:flex;flex-wrap:wrap;align-items:center;gap:40px;}
+    .about img {
+      width:250px;height:250px;border-radius:50%;object-fit:cover;
+      border:4px solid #64ffda;box-shadow:0 0 15px rgba(100,255,218,0.4);
     }
+    .about p {flex:1;font-size:1.1rem;}
 
-    /* ==== SKILLS ==== */
-    .skills {
-      display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-      gap:25px; margin-top:40px;
+    .skills-grid {
+      display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:20px;
     }
-    .skills div {
-      background:rgba(255,255,255,0.08);
-      padding:25px; border-radius:15px; text-align:center;
-      transition:transform 0.3s, background 0.3s;
+    .skill {
+      background:#112240;padding:20px;border-radius:10px;
+      text-align:center;transition:transform 0.3s;
     }
-    .skills div:hover { transform:translateY(-6px); background:rgba(255,255,255,0.15); }
-    .skills i, .skills img { font-size:30px; margin-bottom:12px; color:#64ffda; }
+    .skill:hover {transform:translateY(-5px);}
+    .skill i {font-size:30px;margin-bottom:10px;color:#64ffda;}
 
-    /* ==== PROJECTS ==== */
-    .projects {
-      display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-      gap:30px;
+    .projects-grid {
+      display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:25px;
     }
-    .project-card {
-      background:rgba(255,255,255,0.05);
-      border-radius:15px; padding:25px;
-      transition:transform 0.3s, box-shadow 0.3s;
-      backdrop-filter:blur(10px);
+    .project {
+      background:#112240;padding:20px;border-radius:10px;
+      transition:transform 0.3s;
     }
-    .project-card:hover {
-      transform:translateY(-8px) scale(1.02);
-      box-shadow:0 10px 25px rgba(0,0,0,0.3);
-    }
-    .project-card h3 { color:#64ffda; margin-bottom:10px; }
+    .project:hover {transform:translateY(-5px);}
+    .project h3 {margin-bottom:10px;color:#64ffda;}
 
-    /* ==== EXPERIENCE TIMELINE ==== */
-    .timeline { position:relative; margin:40px auto; padding-left:30px; border-left:3px solid #64ffda; }
-    .timeline-item { margin-bottom:30px; position:relative; }
-    .timeline-item::before {
-      content:""; position:absolute; left:-10px; top:5px;
-      width:15px; height:15px; background:#64ffda; border-radius:50%;
+    .experience {
+      display:flex;flex-direction:column;gap:20px;
     }
-    .timeline-item h3 { color:#64ffda; margin-bottom:5px; }
-    .timeline-item p { color:#ccd6f6; }
+    .exp-card {
+      background:#112240;padding:20px;border-radius:10px;
+    }
+    .exp-card h3 {color:#64ffda;margin-bottom:5px;}
 
-    /* ==== SERVICES ==== */
-    .services {
-      display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-      gap:30px;
-    }
-    .service-card {
-      background:rgba(255,255,255,0.08); padding:25px;
-      border-radius:15px; text-align:center;
-      transition:transform 0.3s, background 0.3s;
-    }
-    .service-card:hover { transform:translateY(-8px); background:rgba(255,255,255,0.15); }
-    .service-card i { font-size:35px; margin-bottom:15px; color:#64ffda; }
-
-    /* ==== TESTIMONIALS ==== */
-    .testimonials { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:30px; }
-    .testimonial {
-      background:rgba(255,255,255,0.08); padding:20px;
-      border-radius:15px; font-style:italic; color:#ccd6f6;
-    }
-    .testimonial h4 { margin-top:15px; color:#64ffda; }
-
-    /* ==== CONTACT ==== */
-    .contact { text-align:center; }
+    .contact {text-align:center;}
+    .contact p {margin-bottom:20px;}
     .contact a {
-      display:inline-block; margin:12px; padding:12px 25px;
-      border:2px solid #64ffda; border-radius:30px;
-      color:#64ffda; text-decoration:none; transition:0.3s;
+      margin:10px;display:inline-block;padding:12px 20px;
+      border:2px solid #64ffda;border-radius:5px;
+      color:#64ffda;font-weight:bold;transition:0.3s;
     }
-    .contact a:hover { background:#64ffda; color:#0a192f; }
+    .contact a:hover {background:#64ffda;color:#0a192f;}
 
-    footer {
-      text-align:center; padding:25px;
-      background:#112f4d; color:#ccd6f6;
-    }
-    footer i { margin:0 8px; font-size:20px; color:#64ffda; transition:0.3s; }
-    footer i:hover { color:#fff; }
+    footer {text-align:center;padding:20px;background:#112240;color:#8892b0;margin-top:40px;}
   </style>
 </head>
 <body>
-
-  <!-- HERO SECTION -->
-  <div class="hero">
-    <img src="IMG_0155.jpeg" alt="Nisarg Patel">
+  <header>
     <h1>Nisarg Patel</h1>
-    <h2>Flutter Developer | Mobile App Enthusiast</h2>
-    <div>
-      <a href="#projects" class="btn">View Projects</a>
-      <a href="#contact" class="btn">Hire Me</a>
-      <a href="Nisarg_Patel_Resume.pdf" class="btn" download>Download Resume</a>
-    </div>
-  </div>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#experience">Experience</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
 
-  <!-- ABOUT -->
+  <section class="hero" id="home">
+    <h2>Hello, I'm Nisarg Patel</h2>
+    <h3>Flutter Developer | Mobile App Enthusiast</h3>
+    <p>I craft modern, user-friendly, and high-performance apps with Flutter & Dart. Passionate about turning ideas into reality through clean code and intuitive design.</p>
+    <a href="#projects" class="btn">View My Work</a>
+  </section>
+
   <section id="about">
     <h2>About Me</h2>
-    <p>
-      Hi, I'm <strong>Nisarg Patel</strong>, a passionate Flutter developer with 2 years of experience in building 
-      seamless mobile apps. My focus is on performance, clean UI/UX, and efficient backend integration.
-    </p>
+    <div class="about">
+      <img src="IMG_0155.jpeg" alt="Nisarg Patel">
+      <p>
+        I'm a <strong>Flutter Developer</strong> with 2 years of professional experience.
+        My expertise lies in building cross-platform apps with seamless user experiences,
+        integrating Firebase, APIs, and modern UI/UX principles.  
+        Beyond coding, I enjoy solving real-world problems and continuously learning new technologies.
+      </p>
+    </div>
   </section>
 
-  <!-- SKILLS -->
   <section id="skills">
     <h2>Skills</h2>
-    <div class="skills">
-      <div><img src="flogo.png" width="30"><br>Flutter</div>
-      <div><img src="dlogo.png" width="30"><br>Dart</div>
-      <div><i class="fa-brands fa-android"></i><br>Android</div>
-      <div><i class="fa-brands fa-apple"></i><br>iOS</div>
-      <div><i class="fa-solid fa-database"></i><br>Firebase</div>
-      <div><i class="fa-solid fa-plug"></i><br>REST APIs</div>
-      <div><i class="fa-brands fa-github"></i><br>Git & GitHub</div>
-      <div><i class="fa-solid fa-pencil-ruler"></i><br>UI/UX Design</div>
-      <div><i class="fa-solid fa-gears"></i><br>CI/CD</div>
+    <div class="skills-grid">
+      <div class="skill"><i class="fa-brands fa-flutter"></i><p>Flutter</p></div>
+      <div class="skill"><i class="fa-brands fa-dart"></i><p>Dart</p></div>
+      <div class="skill"><i class="fa-brands fa-android"></i><p>Android</p></div>
+      <div class="skill"><i class="fa-brands fa-apple"></i><p>iOS</p></div>
+      <div class="skill"><i class="fa-solid fa-database"></i><p>Firebase</p></div>
+      <div class="skill"><i class="fa-solid fa-plug"></i><p>REST APIs</p></div>
+      <div class="skill"><i class="fa-brands fa-github"></i><p>Git & GitHub</p></div>
+      <div class="skill"><i class="fa-solid fa-pencil-ruler"></i><p>UI/UX Design</p></div>
+      <div class="skill"><i class="fa-solid fa-gears"></i><p>CI/CD</p></div>
     </div>
   </section>
 
-  <!-- EXPERIENCE TIMELINE -->
-  <section id="experience">
-    <h2>Experience</h2>
-    <div class="timeline">
-      <div class="timeline-item">
-        <h3>Flutter Developer @ Wave Tech</h3>
-        <p>2023 - Present | Developed service provider apps with Firebase integration.</p>
-      </div>
-      <div class="timeline-item">
-        <h3>Mobile App Developer @ Green Lawns School</h3>
-        <p>2022 - 2023 | Created a school management app for teachers, students & admins.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- SERVICES -->
-  <section id="services">
-    <h2>Services</h2>
-    <div class="services">
-      <div class="service-card"><i class="fa-solid fa-mobile-screen"></i><h3>App Development</h3><p>Building cross-platform apps with Flutter.</p></div>
-      <div class="service-card"><i class="fa-solid fa-paintbrush"></i><h3>UI/UX Design</h3><p>Crafting modern, user-friendly mobile experiences.</p></div>
-      <div class="service-card"><i class="fa-solid fa-cloud"></i><h3>API Integration</h3><p>Integrating REST APIs & Firebase seamlessly.</p></div>
-    </div>
-  </section>
-
-  <!-- PROJECTS -->
   <section id="projects">
     <h2>Projects</h2>
-    <div class="projects">
-      <div class="project-card">
+    <div class="projects-grid">
+      <div class="project">
         <h3>Getup ExerciseNow</h3>
-        <p>Fitness tracking app with daily exercise routines and diet plans.</p>
+        <p>A Flutter fitness app to manage daily workout & diet plans with reminders and progress tracking.</p>
       </div>
-      <div class="project-card">
+      <div class="project">
         <h3>Wave Tech Service</h3>
-        <p>Service provider app with Firebase backend and payment gateway.</p>
+        <p>Service provider app with Firebase backend, real-time booking, and payment gateway integration.</p>
       </div>
-      <div class="project-card">
+      <div class="project">
         <h3>Green Lawns School App</h3>
-        <p>School management app for teachers, students, and administrators.</p>
+        <p>School app for teachers, students, and admins with attendance, assignments, and notifications.</p>
+      </div>
+      <div class="project">
+        <h3>Personal Portfolio</h3>
+        <p>Designed and developed my own portfolio with HTML, CSS, and JavaScript to showcase my skills.</p>
       </div>
     </div>
   </section>
 
-  <!-- TESTIMONIALS -->
-  <section id="testimonials">
-    <h2>Testimonials</h2>
-    <div class="testimonials">
-      <div class="testimonial">"Nisarg is a talented Flutter developer who delivers on time and exceeds expectations." <h4>- Client A</h4></div>
-      <div class="testimonial">"Excellent work! The UI was clean and the app worked flawlessly." <h4>- Client B</h4></div>
-      <div class="testimonial">"Very professional and skilled in mobile development." <h4>- Client C</h4></div>
+  <section id="experience">
+    <h2>Experience</h2>
+    <div class="experience">
+      <div class="exp-card">
+        <h3>Flutter Developer - XYZ Solutions</h3>
+        <p><em>2023 - Present</em></p>
+        <p>Worked on multiple client apps, integrating Firebase and APIs, ensuring responsive design and smooth deployment.</p>
+      </div>
+      <div class="exp-card">
+        <h3>Freelance Mobile Developer</h3>
+        <p><em>2022 - 2023</em></p>
+        <p>Built custom Flutter applications for small businesses, focusing on performance and user-friendly interfaces.</p>
+      </div>
     </div>
   </section>
 
-  <!-- CONTACT -->
-  <section id="contact">
+  <section id="contact" class="contact">
     <h2>Contact</h2>
-    <p>Let’s work together 🚀</p>
+    <p>Let’s collaborate! Reach me at:</p>
     <a href="mailto:np17531@gmail.com"><i class="fa-solid fa-envelope"></i> Email</a>
     <a href="https://github.com/nisargp943" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
     <a href="https://www.linkedin.com/in/nisarg-patel-7b8963227" target="_blank"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
   </section>
 
   <footer>
-    <p>&copy; 2025 Nisarg Patel. Built with ❤️ using HTML & CSS.</p>
-    <div>
-      <a href="https://github.com/nisargp943"><i class="fa-brands fa-github"></i></a>
-      <a href="https://linkedin.com/in/nisarg-patel-7b8963227"><i class="fa-brands fa-linkedin"></i></a>
-      <a href="mailto:np17531@gmail.com"><i class="fa-solid fa-envelope"></i></a>
-    </div>
+    <p>&copy; 2025 Nisarg Patel. Built with ❤️ and Flutter vibes.</p>
   </footer>
-
 </body>
 </html>
