@@ -6,221 +6,179 @@
   <title>Nisarg Patel | Flutter Developer</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
   <style>
-    * {margin:0;padding:0;box-sizing:border-box;font-family: 'Segoe UI', sans-serif;}
-    body {background:#ffffff;color:#333;line-height:1.6;}
-    a {text-decoration:none;color:inherit;}
-
-    header {
-      position:fixed;top:0;left:0;width:100%;
-      background:#0077b6;padding:12px 40px;display:flex;
-      justify-content:space-between;align-items:center;
-      z-index:1000;box-shadow:0 2px 6px rgba(0,0,0,0.15);
+    * {margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',sans-serif;}
+    body {display:flex;background:#0f172a;color:#f1f5f9;}
+    
+    /* Sidebar */
+    .sidebar {
+      position:fixed;top:0;left:0;height:100%;width:220px;
+      background:#1e293b;padding:20px;display:flex;flex-direction:column;
+      justify-content:space-between;
     }
-    header h1 {color:#fff;font-size:1.3rem;}
-    nav a {
-      margin-left:15px;font-weight:600;color:#fff;
-      transition:color 0.3s;
+    .sidebar h1 {color:#38bdf8;font-size:1.5rem;margin-bottom:20px;}
+    .sidebar nav a {
+      display:block;margin:12px 0;color:#cbd5e1;font-weight:500;
+      transition:0.3s;padding:8px;border-radius:6px;
     }
-    nav a:hover {color:#ff6b35;}
-
+    .sidebar nav a:hover {background:#334155;color:#38bdf8;}
+    .sidebar footer {font-size:0.8rem;color:#94a3b8;text-align:center;}
+    
+    /* Main content */
+    .main {margin-left:220px;width:calc(100% - 220px);padding:40px;}
+    section {margin-bottom:60px;}
+    section h2 {
+      font-size:1.8rem;color:#38bdf8;margin-bottom:20px;text-align:center;
+    }
+    
+    /* Hero */
     .hero {
-      height:90vh;display:flex;flex-direction:column;
-      justify-content:center;align-items:center;
-      text-align:center;padding:20px;background:#f7f9fc;
+      display:flex;flex-direction:column;align-items:center;text-align:center;
+      padding:60px 20px;background:#1e293b;border-radius:12px;
     }
-    .hero h2 {font-size:2rem;color:#0077b6;margin-bottom:8px;}
-    .hero h3 {font-size:1.3rem;margin-bottom:15px;color:#555;}
-    .hero p {max-width:650px;margin:auto;margin-bottom:20px;color:#444;}
-    .hero .btn {
-      display:inline-block;padding:10px 20px;
-      border:2px solid #0077b6;border-radius:5px;
-      color:#0077b6;font-weight:bold;transition:0.3s;
+    .hero img {
+      width:140px;height:140px;border-radius:50%;object-fit:cover;
+      border:3px solid #38bdf8;margin-bottom:15px;
     }
-    .hero .btn:hover {background:#0077b6;color:#fff;}
-
-    section {padding:50px 20px;max-width:1100px;margin:auto;}
-    section h2 {font-size:1.8rem;color:#0077b6;text-align:center;margin-bottom:25px;}
-
-    .about {display:flex;flex-wrap:wrap;align-items:center;gap:30px;}
-    .about img {
-      width:220px;height:220px;border-radius:50%;object-fit:cover;
-      border:3px solid #0077b6;box-shadow:0 4px 10px rgba(0,0,0,0.15);
+    .hero h2 {font-size:2rem;margin-bottom:8px;}
+    .hero h3 {font-size:1.2rem;color:#94a3b8;margin-bottom:15px;}
+    .hero p {max-width:600px;margin:auto;margin-bottom:20px;color:#e2e8f0;}
+    .btn {
+      display:inline-block;padding:10px 20px;background:#38bdf8;color:#0f172a;
+      border-radius:6px;font-weight:bold;transition:0.3s;
     }
-    .about p {flex:1;font-size:1rem;color:#444;}
-
-    .skills-grid {
-      display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:15px;
+    .btn:hover {background:#0ea5e9;color:#fff;}
+    
+    /* Grids */
+    .grid {
+      display:grid;gap:20px;
+      grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
     }
-    .skill {
-      background:#f7f9fc;padding:15px;border-radius:8px;
-      text-align:center;transition:0.3s;
-      border:1px solid #e0e0e0;
+    .card {
+      background:#1e293b;padding:20px;border-radius:10px;
+      transition:0.3s;border:1px solid #334155;
     }
-    .skill:hover {transform:translateY(-4px);box-shadow:0 4px 8px rgba(0,0,0,0.1);}
-    .skill i {font-size:24px;margin-bottom:6px;color:#0077b6;}
-
-    .projects-grid {
-      display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;
-    }
-    .project {
-      background:#f7f9fc;padding:15px;border-radius:8px;
-      border:1px solid #e0e0e0;transition:0.3s;
-    }
-    .project:hover {transform:translateY(-4px);box-shadow:0 4px 8px rgba(0,0,0,0.1);}
-    .project h3 {margin-bottom:8px;color:#ff6b35;}
-
-    .services-grid {
-      display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;
-    }
-    .service {
-      background:#f7f9fc;padding:15px;border-radius:8px;border:1px solid #e0e0e0;text-align:center;
-    }
-    .service i {font-size:28px;color:#0077b6;margin-bottom:10px;}
-
-    .experience {display:flex;flex-direction:column;gap:15px;}
-    .exp-card {
-      background:#f7f9fc;padding:15px;border-radius:8px;border:1px solid #e0e0e0;
-    }
-    .exp-card h3 {color:#0077b6;margin-bottom:4px;}
-
-    .testimonials {display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;}
-    .testimonial {
-      background:#f7f9fc;padding:15px;border-radius:8px;
-      border:1px solid #e0e0e0;font-style:italic;
-    }
-
-    .certs {display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;}
-    .cert {background:#f7f9fc;padding:15px;border-radius:8px;border:1px solid #e0e0e0;}
-
-    .contact {text-align:center;}
-    .contact-form {max-width:500px;margin:20px auto;text-align:left;}
-    .contact-form input, .contact-form textarea {
+    .card:hover {transform:translateY(-4px);border-color:#38bdf8;}
+    .card h3 {margin-bottom:10px;color:#38bdf8;}
+    .card p {color:#e2e8f0;font-size:0.95rem;}
+    
+    /* Contact */
+    .contact-form {max-width:500px;margin:auto;text-align:left;}
+    .contact-form input,.contact-form textarea {
       width:100%;padding:10px;margin-bottom:10px;
-      border:1px solid #ccc;border-radius:5px;
+      border:1px solid #334155;border-radius:6px;background:#0f172a;color:#fff;
     }
     .contact-form button {
-      padding:10px 20px;background:#0077b6;color:#fff;
-      border:none;border-radius:5px;font-weight:bold;cursor:pointer;
+      padding:10px 20px;background:#38bdf8;color:#0f172a;
+      border:none;border-radius:6px;font-weight:bold;cursor:pointer;
     }
-    .contact-form button:hover {background:#ff6b35;}
-
-    footer {
-      text-align:center;padding:15px;background:#0077b6;
-      color:#fff;margin-top:30px;font-size:0.9rem;
-    }
+    .contact-form button:hover {background:#0ea5e9;color:#fff;}
   </style>
 </head>
 <body>
-  <header>
-    <h1>Nisarg Patel</h1>
-    <nav>
-      <a href="#about">About</a>
-      <a href="#skills">Skills</a>
-      <a href="#projects">Projects</a>
-      <a href="#services">Services</a>
-      <a href="#experience">Experience</a>
-      <a href="#testimonials">Testimonials</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div>
+      <h1>Nisarg Patel</h1>
+      <nav>
+        <a href="#home"><i class="fa-solid fa-house"></i> Home</a>
+        <a href="#about"><i class="fa-solid fa-user"></i> About</a>
+        <a href="#skills"><i class="fa-solid fa-code"></i> Skills</a>
+        <a href="#projects"><i class="fa-solid fa-diagram-project"></i> Projects</a>
+        <a href="#services"><i class="fa-solid fa-briefcase"></i> Services</a>
+        <a href="#experience"><i class="fa-solid fa-building"></i> Experience</a>
+        <a href="#contact"><i class="fa-solid fa-envelope"></i> Contact</a>
+      </nav>
+    </div>
+    <footer>
+      © 2025 Nisarg Patel  
+      <br>Built with ❤️ & Flutter vibes
+    </footer>
+  </aside>
 
-  <section class="hero" id="home">
-    <h2>Hello, I'm Nisarg Patel</h2>
-    <h3>Flutter Developer | Mobile App Enthusiast</h3>
-    <p>I build fast, modern, and scalable mobile applications with Flutter & Dart. My goal is to deliver user-friendly apps that solve real-world problems effectively.</p>
-    <a href="#projects" class="btn">See My Work</a>
-  </section>
-
-  <section id="about">
-    <h2>About Me</h2>
-    <div class="about">
+  <!-- Main content -->
+  <main class="main">
+    <!-- Hero -->
+    <section id="home" class="hero">
       <img src="IMG_0155.jpeg" alt="Nisarg Patel">
-      <p>
-        I'm a <strong>Flutter Developer</strong> with 2 years of professional experience.  
-        I specialize in cross-platform app development with Firebase, REST APIs, and modern UI/UX design.  
-        I enjoy freelancing, contributing to open source, and building projects that matter.
+      <h2>Hello, I'm Nisarg Patel</h2>
+      <h3>Flutter Developer | Mobile App Enthusiast</h3>
+      <p>I build fast, modern, and scalable mobile applications with Flutter & Dart. My goal is to deliver user-friendly apps that solve real-world problems effectively.</p>
+      <a href="#projects" class="btn">See My Work</a>
+    </section>
+
+    <!-- About -->
+    <section id="about">
+      <h2>About Me</h2>
+      <div class="card">
+        <p>
+          I'm a <strong>Flutter Developer</strong> with 2 years of professional experience.  
+          I specialize in cross-platform app development with Firebase, REST APIs, and modern UI/UX design.  
+          I enjoy freelancing, contributing to open source, and building projects that matter.
+        </p>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills">
+      <h2>Skills</h2>
+      <div class="grid">
+        <div class="card"><h3>Flutter</h3><p>Cross-platform apps with modern UI.</p></div>
+        <div class="card"><h3>Dart</h3><p>Strong foundation in Dart language.</p></div>
+        <div class="card"><h3>Firebase</h3><p>Realtime DB, Auth, Cloud Functions.</p></div>
+        <div class="card"><h3>REST APIs</h3><p>Integration & backend communication.</p></div>
+        <div class="card"><h3>Git & GitHub</h3><p>Version control & collaboration.</p></div>
+        <div class="card"><h3>UI/UX</h3><p>User-focused design and prototyping.</p></div>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects">
+      <h2>Projects</h2>
+      <div class="grid">
+        <div class="card"><h3>Getup ExerciseNow</h3><p>A fitness app with workout tracking, diet planner, and progress monitoring.</p></div>
+        <div class="card"><h3>Wave Tech Service</h3><p>Service provider app with Firebase backend, live booking & payments.</p></div>
+        <div class="card"><h3>Green Lawns School</h3><p>School app for teachers, students, and parents with real-time updates.</p></div>
+        <div class="card"><h3>Portfolio Website</h3><p>Designed my personal portfolio with HTML, CSS, and responsive design.</p></div>
+      </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services">
+      <h2>Services</h2>
+      <div class="grid">
+        <div class="card"><h3>App Development</h3><p>Cross-platform Flutter apps with modern UI.</p></div>
+        <div class="card"><h3>API Integration</h3><p>Seamless integration with REST APIs & Firebase.</p></div>
+        <div class="card"><h3>UI/UX Design</h3><p>Clean, intuitive, and user-friendly interfaces.</p></div>
+      </div>
+    </section>
+
+    <!-- Experience -->
+    <section id="experience">
+      <h2>Experience</h2>
+      <div class="grid">
+        <div class="card"><h3>Flutter Developer - XYZ Solutions</h3><p><em>2023 - Present</em></p><p>Built multiple apps with Firebase, APIs, and smooth deployment pipelines.</p></div>
+        <div class="card"><h3>Freelance Developer</h3><p><em>2022 - 2023</em></p><p>Developed custom mobile apps for businesses with focus on speed and design.</p></div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+      <h2>Contact</h2>
+      <p style="text-align:center;">Let’s collaborate! Reach out via form or links below:</p>
+      <div class="contact-form">
+        <form>
+          <input type="text" placeholder="Your Name" required>
+          <input type="email" placeholder="Your Email" required>
+          <textarea placeholder="Your Message" rows="5" required></textarea>
+          <button type="submit">Send Message</button>
+        </form>
+      </div>
+      <p style="text-align:center;margin-top:15px;">
+        <a href="mailto:np17531@gmail.com"><i class="fa-solid fa-envelope"></i> Email</a> |
+        <a href="https://github.com/nisargp943" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a> |
+        <a href="https://www.linkedin.com/in/nisarg-patel-7b8963227" target="_blank"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
       </p>
-    </div>
-  </section>
-
-  <section id="skills">
-    <h2>Skills</h2>
-    <div class="skills-grid">
-      <div class="skill"><i class="fa-brands fa-flutter"></i><p>Flutter</p></div>
-      <div class="skill"><i class="fa-brands fa-dart"></i><p>Dart</p></div>
-      <div class="skill"><i class="fa-brands fa-android"></i><p>Android</p></div>
-      <div class="skill"><i class="fa-brands fa-apple"></i><p>iOS</p></div>
-      <div class="skill"><i class="fa-solid fa-database"></i><p>Firebase</p></div>
-      <div class="skill"><i class="fa-solid fa-plug"></i><p>REST APIs</p></div>
-      <div class="skill"><i class="fa-brands fa-github"></i><p>Git & GitHub</p></div>
-      <div class="skill"><i class="fa-solid fa-pencil-ruler"></i><p>UI/UX</p></div>
-      <div class="skill"><i class="fa-solid fa-gears"></i><p>CI/CD</p></div>
-    </div>
-  </section>
-
-  <section id="projects">
-    <h2>Projects</h2>
-    <div class="projects-grid">
-      <div class="project"><h3>Getup ExerciseNow</h3><p>A fitness app with workout tracking, diet planner, and progress monitoring.</p></div>
-      <div class="project"><h3>Wave Tech Service</h3><p>Service provider app with Firebase backend, live booking & payments.</p></div>
-      <div class="project"><h3>Green Lawns School</h3><p>School app for teachers, students, and parents with real-time updates.</p></div>
-      <div class="project"><h3>Portfolio Website</h3><p>Designed my personal portfolio with HTML, CSS, and responsive design.</p></div>
-    </div>
-  </section>
-
-  <section id="services">
-    <h2>Services</h2>
-    <div class="services-grid">
-      <div class="service"><i class="fa-solid fa-mobile-screen"></i><h3>App Development</h3><p>Cross-platform Flutter apps with modern UI.</p></div>
-      <div class="service"><i class="fa-solid fa-code"></i><h3>API Integration</h3><p>Seamless integration with REST APIs & Firebase.</p></div>
-      <div class="service"><i class="fa-solid fa-palette"></i><h3>UI/UX Design</h3><p>Clean, intuitive, and user-friendly interfaces.</p></div>
-    </div>
-  </section>
-
-  <section id="experience">
-    <h2>Experience</h2>
-    <div class="experience">
-      <div class="exp-card"><h3>Flutter Developer - XYZ Solutions</h3><p><em>2023 - Present</em></p><p>Built multiple apps with Firebase, APIs, and smooth deployment pipelines.</p></div>
-      <div class="exp-card"><h3>Freelance Developer</h3><p><em>2022 - 2023</em></p><p>Developed custom mobile apps for businesses with focus on speed and design.</p></div>
-    </div>
-  </section>
-
-  <section id="testimonials">
-    <h2>Testimonials</h2>
-    <div class="testimonials">
-      <div class="testimonial">"Nisarg delivered our app ahead of schedule and exceeded expectations!"</div>
-      <div class="testimonial">"Great communication and excellent Flutter skills. Highly recommended."</div>
-    </div>
-  </section>
-
-  <section id="certifications">
-    <h2>Certifications & Achievements</h2>
-    <div class="certs">
-      <div class="cert"><h3>Flutter Development - Udemy</h3><p>Completed advanced Flutter course with real-world projects.</p></div>
-      <div class="cert"><h3>Firebase Certified</h3><p>Hands-on certification for Firebase integration.</p></div>
-    </div>
-  </section>
-
-  <section id="contact" class="contact">
-    <h2>Contact</h2>
-    <p>Let’s collaborate! Reach out via form or links below:</p>
-    <div class="contact-form">
-      <form>
-        <input type="text" placeholder="Your Name" required>
-        <input type="email" placeholder="Your Email" required>
-        <textarea placeholder="Your Message" rows="5" required></textarea>
-        <button type="submit">Send Message</button>
-      </form>
-    </div>
-    <p>
-      <a href="mailto:np17531@gmail.com"><i class="fa-solid fa-envelope"></i> Email</a> |
-      <a href="https://github.com/nisargp943" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a> |
-      <a href="https://www.linkedin.com/in/nisarg-patel-7b8963227" target="_blank"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
-    </p>
-  </section>
-
-  <footer>
-    <p>&copy; 2025 Nisarg Patel. Built with ❤️ and Flutter vibes.</p>
-  </footer>
+    </section>
+  </main>
 </body>
 </html>
