@@ -58,13 +58,70 @@ section h2 { text-align:center; font-size:2.5rem; margin-bottom:50px; color:#ff4
 .project-card p { color:#333; font-size:0.95rem; }
 
 /* Experience */
-.timeline { position:relative; padding-left:50px; border-left:3px solid #ff4c29; }
-.exp { position:relative; margin-bottom:40px; opacity:0; transform:translateX(-50px); transition:1s; }
-.exp.visible { opacity:1; transform:translateX(0);}
-.exp i { position:absolute; left:-10px; top:0; background:#ff4c29; color:#fff; width:50px; height:50px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:20px;}
-.exp h3 { color:#1e1e2f; margin-bottom:5px; font-weight:700; }
-.exp em { color:#555; font-size:0.9rem; }
-.exp p { margin-top:5px; color:#333; }
+/* Timeline container */
+.timeline {
+  position: relative;
+  padding-left: 80px;          /* Space for icons + timeline line */
+  border-left: 3px solid #ff4c29;
+  margin: 20px 0;
+}
+
+/* Individual experience item */
+.exp {
+  position: relative;
+  margin-bottom: 40px;
+  opacity: 0;
+  transform: translateX(-50px);
+  transition: all 0.8s ease;
+}
+
+/* Animation visible state */
+.exp.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Timeline icon */
+.exp i {
+  position: absolute;
+  left: -38px;                  /* Centers 50px icon over 3px line */
+  top: 0;
+  width: 50px;
+  height: 50px;
+  background: #ff4c29;
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+
+/* Hover effect for icon (optional) */
+.exp i:hover {
+  transform: scale(1.1);
+}
+
+/* Experience content */
+.exp h3 {
+  color: #1e1e2f;
+  margin-bottom: 5px;
+  font-weight: 700;
+}
+
+.exp em {
+  color: #555;
+  font-size: 0.9rem;
+}
+
+.exp p {
+  margin-top: 5px;
+  color: #333;
+  line-height: 1.5;
+}
+
 
 /* Contact */
 .contact { text-align:center; padding:50px 0;}
