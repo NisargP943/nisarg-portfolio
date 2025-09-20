@@ -19,7 +19,8 @@ nav a { margin-left:25px; font-weight:600; transition:0.3s; }
 nav a:hover { color:#ff4c29; }
 
 /* Hero Full Screen */
-.hero { display:flex; flex-wrap:wrap; justify-content:center; align-items:center; min-height:100vh; width:100vw; background:linear-gradient(135deg,#0d1b2a,#1f2a44); color:#fff; margin:0; padding:0; position:relative; overflow:hidden;}
+.hero { display:flex; justify-content:center; align-items:center; min-height:100vh; width:100vw; background:linear-gradient(135deg,#0d1b2a,#1f2a44); color:#fff; position:relative; overflow:hidden;}
+.hero-content { display:flex; justify-content:space-between; align-items:center; width:100%; max-width:1200px; padding:0 50px; flex-wrap:wrap; }
 .hero-left, .hero-right { flex:1; min-width:280px; display:flex; justify-content:center; align-items:center; flex-direction:column; opacity:0; transition:1s; }
 .hero-left.visible, .hero-right.visible { opacity:1; transform:translateX(0);}
 .hero-left img { width:100%; max-width:400px; border-radius:20px; box-shadow:0 10px 25px rgba(0,0,0,0.5);}
@@ -84,7 +85,7 @@ footer { background:#0d1b2a; color:#fff; text-align:center; padding:25px; margin
 }
 
 /* Responsive */
-@media(max-width:900px){ .hero { flex-direction:column; } .hero-right{text-align:center;} .skills{justify-content:center;} }
+@media(max-width:900px){ .hero-content { flex-direction:column; text-align:center;} .skills{justify-content:center;} }
 </style>
 </head>
 <body>
@@ -105,7 +106,7 @@ footer { background:#0d1b2a; color:#fff; text-align:center; padding:25px; margin
   <div style="position:absolute; top:-50px; right:-50px; width:300px; height:300px; background:rgba(255,76,41,0.2); border-radius:50%; animation:float 6s ease-in-out infinite alternate;"></div>
   <div style="position:absolute; bottom:-50px; left:-50px; width:400px; height:400px; background:rgba(255,76,41,0.15); border-radius:50%; animation:float 8s ease-in-out infinite alternate-reverse;"></div>
 
-  <div style="position:relative; display:flex; flex-wrap:wrap; justify-content:center; align-items:center; max-width:1100px; width:100%;">
+  <div class="hero-content">
     <div class="hero-right">
       <h1>Hi, I'm Nisarg Patel</h1>
       <p>Flutter Developer | Mobile App Enthusiast</p>
@@ -135,7 +136,9 @@ footer { background:#0d1b2a; color:#fff; text-align:center; padding:25px; margin
 
 <section id="skills">
   <h2>Skills</h2>
-  <div class="skills">
+  <div class="skills"> 
+    <div class="skill-card"><i class="fa-solid fa-technology"></i><p>Flutter</p></div>    
+    <div class="skill-card"><i class="fa-soild fa-code"></i><p>Dart</p></div>
     <div class="skill-card"><i class="fa-brands fa-android"></i><p>Android</p></div>
     <div class="skill-card"><i class="fa-brands fa-apple"></i><p>iOS</p></div>
     <div class="skill-card"><i class="fa-solid fa-database"></i><p>Firebase</p></div>
