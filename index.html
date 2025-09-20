@@ -18,7 +18,7 @@ header h1 { font-size:1.8rem; font-weight:700; color:#ff4c29; }
 nav a { margin-left:25px; font-weight:600; transition:0.3s; }
 nav a:hover { color:#ff4c29; }
 
-/* Hero Full Screen */
+/* Hero Full Screen 
 .hero { display:flex; align-items:center; min-height:100vh; width:100vw; background:linear-gradient(135deg,#0d1b2a,#1f2a44); color:#fff; position:relative; overflow:hidden;}
 .hero-content { display:flex; justify-content:space-between; align-items:center; width:100%; padding:0 50px; flex-wrap:wrap; }
 .hero-left, .hero-right { flex:1; min-width:280px; display:flex; justify-content:center; align-items:center; flex-direction:column; opacity:0; transition:1s; }
@@ -30,7 +30,79 @@ nav a:hover { color:#ff4c29; }
 .btn-primary { background:#ff4c29; color:#fff; border:none;}
 .btn-primary:hover { background:#fff; color:#ff4c29; border:2px solid #ff4c29; }
 .btn-secondary { background:#fff; color:#0d1b2a; border:2px solid #ff4c29;}
-.btn-secondary:hover { background:#ff4c29; color:#fff; border:none; }
+.btn-secondary:hover { background:#ff4c29; color:#fff; border:none; }*/
+  .hero {
+  display: flex;
+  align-items: center;
+  min-height: 100vh;
+  width: 100vw;
+  background: linear-gradient(135deg,#0d1b2a,#1f2a44);
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;        /* Full width */
+  padding: 0 20px;    /* Small horizontal padding to avoid content touching edges */
+  flex-wrap: wrap;
+}
+
+.hero-left,
+.hero-right {
+  flex: 1;
+  min-width: 280px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  opacity: 0;
+  transition: 1s;
+}
+
+.hero-left.visible,
+.hero-right.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.hero-left img {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+}
+
+.hero-right h1 {
+  font-size: 3rem;
+  color: #ff4c29;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.hero-right p {
+  font-size: 1.2rem;
+  margin-bottom: 25px;
+  text-align: center;
+}
+
+/* Responsive */
+@media screen and (max-width:900px) {
+  .hero-content {
+    flex-direction: column;
+    text-align: center;
+    padding: 0 15px;
+  }
+  .hero-right h1 {
+    font-size: 2.5rem;
+  }
+  .hero-right p {
+    font-size: 1rem;
+  }
+}
 
 /* Sections */
 section { padding:80px 50px; max-width:1200px; margin:auto; }
