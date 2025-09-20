@@ -36,6 +36,15 @@ nav a:hover { color:#ff4c29; }
 /* Sections */
 section { padding:100px 50px; max-width:1200px; margin:auto; }
 section h2 { text-align:center; font-size:2.5rem; margin-bottom:50px; color:#ff4c29; }
+@keyframes float {
+  0% { transform: translateY(0) translateX(0); }
+  100% { transform: translateY(30px) translateX(30px); }
+}
+
+@keyframes slideIn {
+  0% { opacity:0; transform:translateY(50px);}
+  100% { opacity:1; transform:translateY(0);}
+}
 
 /* About */
 .about { display:flex; flex-wrap:wrap; align-items:center; gap:40px; }
