@@ -155,5 +155,61 @@
       <h3>Green Lawns School</h3>
       <p>School management app for teachers, students & parents.</p>
     </div>
+  </div>
+</section>
 
-   
+<!-- Experience -->
+<section id="experience" class="reveal">
+  <h2>Experience</h2>
+  <div class="timeline">
+    <div class="exp">
+      <i class="fa-solid fa-briefcase"></i>
+      <h3>Flutter Developer - XYZ Solutions</h3>
+      <em>2023 - Present</em>
+      <p>Developed multiple client apps with Firebase & REST API integration.</p>
+    </div>
+    <div class="exp">
+      <i class="fa-solid fa-briefcase"></i>
+      <h3>Freelance Developer</h3>
+      <em>2022 - 2023</em>
+      <p>Built custom mobile apps for businesses focusing on performance and design.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Contact -->
+<section id="contact" class="contact reveal">
+  <h2>Contact Me</h2>
+  <p>Reach out for freelance projects or job opportunities.</p>
+  <a href="mailto:np17531@gmail.com"><i class="fa-solid fa-envelope"></i> Email</a>
+  <a href="https://github.com/nisargp943" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
+  <a href="https://www.linkedin.com/in/nisarg-patel-7b8963227" target="_blank"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+</section>
+
+<footer>
+  <p>&copy; 2025 Nisarg Patel. All Rights Reserved.</p>
+</footer>
+
+<script>
+  // Reveal animation
+  window.addEventListener("scroll",()=>{
+    document.querySelectorAll(".reveal").forEach(el=>{
+      if(el.getBoundingClientRect().top < window.innerHeight - 100){
+        el.classList.add("active");
+      }
+    });
+  });
+
+  // Skills animation
+  window.addEventListener("scroll",()=>{
+    document.querySelectorAll(".skill-circle .progress").forEach((circle,i)=>{
+      if(circle.getBoundingClientRect().top < window.innerHeight - 50){
+        let percent=[90,85,80][i];
+        circle.style.strokeDashoffset = 440 - (440*percent)/100;
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
