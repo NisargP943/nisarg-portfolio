@@ -19,32 +19,21 @@ nav a { margin-left:25px; font-weight:600; transition:0.3s; }
 nav a:hover { color:#ff4c29; }
 
 /* Hero Full Screen */
-.hero { display:flex; flex-wrap:wrap; justify-content:center; align-items:center; min-height:100vh; width:100%; padding:0 50px; background:linear-gradient(135deg,#0d1b2a,#1f2a44); color:#fff;}
-.hero-left { flex:1; min-width:280px; text-align:center; opacity:0; transform:translateX(-50px); transition:1s; display:flex; justify-content:center; align-items:center;}
-.hero-left.visible { opacity:1; transform:translateX(0);}
+.hero { display:flex; flex-wrap:wrap; justify-content:center; align-items:center; min-height:100vh; width:100vw; background:linear-gradient(135deg,#0d1b2a,#1f2a44); color:#fff; margin:0; padding:0; position:relative; overflow:hidden;}
+.hero-left, .hero-right { flex:1; min-width:280px; display:flex; justify-content:center; align-items:center; flex-direction:column; opacity:0; transition:1s; }
+.hero-left.visible, .hero-right.visible { opacity:1; transform:translateX(0);}
 .hero-left img { width:100%; max-width:400px; border-radius:20px; box-shadow:0 10px 25px rgba(0,0,0,0.5);}
-.hero-right { flex:1; min-width:280px; padding:20px; opacity:0; transform:translateX(50px); transition:1s; display:flex; flex-direction:column; justify-content:center;}
-.hero-right.visible { opacity:1; transform:translateX(0);}
-.hero-right h2 { font-size:3rem; color:#ff4c29; margin-bottom:20px;}
-.hero-right p { font-size:1.2rem; margin-bottom:25px;}
-.btn { padding:12px 28px; margin-right:12px; border-radius:8px; font-weight:600; transition:0.3s; cursor:pointer; }
+.hero-right h1 { font-size:3rem; color:#ff4c29; margin-bottom:20px; }
+.hero-right p { font-size:1.2rem; margin-bottom:25px; }
+.btn { padding:10px 20px; margin-right:10px; border-radius:8px; font-weight:600; transition:0.3s; cursor:pointer; display:inline-block; }
 .btn-primary { background:#ff4c29; color:#fff; border:none;}
 .btn-primary:hover { background:#fff; color:#ff4c29; border:2px solid #ff4c29; }
 .btn-secondary { background:#fff; color:#0d1b2a; border:2px solid #ff4c29;}
-.btn-secondary:hover 
+.btn-secondary:hover { background:#ff4c29; color:#fff; border:none; }
 
 /* Sections */
 section { padding:100px 50px; max-width:1200px; margin:auto; }
 section h2 { text-align:center; font-size:2.5rem; margin-bottom:50px; color:#ff4c29; }
-@keyframes float {
-  0% { transform: translateY(0) translateX(0); }
-  100% { transform: translateY(30px) translateX(30px); }
-}
-
-@keyframes slideIn {
-  0% { opacity:0; transform:translateY(50px);}
-  100% { opacity:1; transform:translateY(0);}
-}
 
 /* About */
 .about { display:flex; flex-wrap:wrap; align-items:center; gap:40px; }
@@ -54,13 +43,11 @@ section h2 { text-align:center; font-size:2.5rem; margin-bottom:50px; color:#ff4
 .stat { background:#ff4c29; color:#fff; padding:15px 25px; border-radius:12px; font-weight:700; text-align:center; flex:1; min-width:120px; }
 
 /* Skills */
-.skills { display:flex; flex-wrap:wrap; gap:20px; justify-content:center; }
+.skills { display:flex; flex-wrap:wrap; gap:20px; justify-content:center; padding:50px 0; }
 .skill-card { flex:0 0 150px; background:#fff; padding:20px; border-radius:15px; text-align:center; box-shadow:0 6px 15px rgba(0,0,0,0.1); transition:0.3s; opacity:0; transform:translateY(50px); }
 .skill-card.visible { opacity:1; transform:translateY(0);}
 .skill-card i { font-size:2.5rem; color:#ff4c29; margin-bottom:10px;}
-.skill-card p { font-weight:600; margin-top:5px;}
-.skill-bar { width:100%; background:#eee; height:8px; border-radius:5px; margin-top:10px; overflow:hidden;}
-.skill-fill { height:100%; background:#ff4c29; width:0%; border-radius:5px; transition:1s; }
+.skill-card p { font-weight:600; margin-top:5px; }
 
 /* Projects */
 .projects { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:30px; }
@@ -81,11 +68,22 @@ section h2 { text-align:center; font-size:2.5rem; margin-bottom:50px; color:#ff4
 .exp p { margin-top:5px; color:#333; }
 
 /* Contact */
-.contact { text-align:center; }
+.contact { text-align:center; padding:50px 0;}
 .contact a { display:inline-block; margin:10px; padding:15px 30px; border-radius:10px; font-weight:700; background:#ff4c29; color:#fff; transition:0.3s; }
 .contact a:hover { background:#0d1b2a; color:#ff4c29; }
 
 footer { background:#0d1b2a; color:#fff; text-align:center; padding:25px; margin-top:50px; font-weight:500; }
+
+/* Animations */
+@keyframes float {
+  0% { transform: translateY(0) translateX(0); }
+  100% { transform: translateY(30px) translateX(30px); }
+}
+
+@keyframes slideIn {
+  0% { opacity:0; transform:translateY(50px);}
+  100% { opacity:1; transform:translateY(0);}
+}
 
 /* Responsive */
 @media(max-width:900px){ .hero { flex-direction:column; } .hero-right{text-align:center;} .skills{justify-content:center;} }
@@ -105,20 +103,20 @@ footer { background:#0d1b2a; color:#fff; text-align:center; padding:25px; margin
   </nav>
 </header>
 
-<section class="hero" id="home" style="height:100vh; width:100vw; display:flex; align-items:center; justify-content:center; background:linear-gradient(135deg,#0d1b2a,#1f2a44); position:relative; overflow:hidden; margin:0; padding:0;">
+<section class="hero" id="home">
   <!-- Floating Circle Background -->
   <div style="position:absolute; top:-50px; right:-50px; width:300px; height:300px; background:rgba(255,76,41,0.2); border-radius:50%; animation:float 6s ease-in-out infinite alternate;"></div>
   <div style="position:absolute; bottom:-50px; left:-50px; width:400px; height:400px; background:rgba(255,76,41,0.15); border-radius:50%; animation:float 8s ease-in-out infinite alternate-reverse;"></div>
 
   <div style="position:relative; display:flex; flex-wrap:wrap; justify-content:center; align-items:center; max-width:1100px; width:100%;">
-    <div style="flex:1; min-width:280px; text-align:center;">
-      <h1 style="font-size:3rem; color:#ff4c29; margin-bottom:20px; animation:slideIn 1s ease forwards;">Hi, I'm Nisarg Patel</h1>
-      <p style="font-size:1.2rem; color:#fff; margin-bottom:25px; animation:slideIn 1.2s ease forwards;">Flutter Developer | Mobile App Enthusiast</p>
-      <a href="#projects" style="padding:10px 20px; background:#ff4c29; color:#fff; border-radius:8px; margin-right:10px; display:inline-block; font-weight:600; transition:0.3s; animation:slideIn 1.4s ease forwards;">View Projects</a>
-      <a href="#" style="padding:10px 20px; background:#fff; color:#0d1b2a; border-radius:8px; margin-left:10px; display:inline-block; font-weight:600; transition:0.3s; animation:slideIn 1.6s ease forwards;">Download Resume</a>
+    <div class="hero-right">
+      <h1>Hi, I'm Nisarg Patel</h1>
+      <p>Flutter Developer | Mobile App Enthusiast</p>
+      <a href="#projects" class="btn btn-primary">View Projects</a>
+      <a href="#" class="btn btn-secondary">Download Resume</a>
     </div>
-    <div style="flex:1; min-width:280px; text-align:center; animation:slideIn 1.8s ease forwards;">
-      <img src="https://images.unsplash.com/photo-1603415526960-f0b02b14528b?crop=faces&fit=crop&w=400&h=400" style="width:100%; max-width:350px; border-radius:20px; box-shadow:0 15px 30px rgba(0,0,0,0.5);" alt="Nisarg Patel">
+    <div class="hero-left">
+      <img src="IMG_0155.jpeg" alt="Nisarg Patel">
     </div>
   </div>
 </section>
@@ -141,12 +139,15 @@ footer { background:#0d1b2a; color:#fff; text-align:center; padding:25px; margin
 <section id="skills">
   <h2>Skills</h2>
   <div class="skills">
-    <div class="skill-card"><i class="fa-brands fa-android"></i><p>Android</p><div class="skill-bar"><div class="skill-fill" style="width:90%"></div></div></div>
-    <div class="skill-card"><i class="fa-brands fa-apple"></i><p>iOS</p><div class="skill-bar"><div class="skill-fill" style="width:85%"></div></div></div>
-    <div class="skill-card"><i class="fa-solid fa-database"></i><p>Firebase</p><div class="skill-bar"><div class="skill-fill" style="width:80%"></div></div></div>
-    <div class="skill-card"><i class="fa-brands fa-github"></i><p>Git & GitHub</p><div class="skill-bar"><div class="skill-fill" style="width:90%"></div></div></div>
-    <div class="skill-card"><i class="fa-solid fa-plug"></i><p>REST API</p><div class="skill-bar"><div class="skill-fill" style="width:85%"></div></div></div>
-    <div class="skill-card"><i class="fa-solid fa-pencil-ruler"></i><p>UI/UX</p><div class="skill-bar"><div class="skill-fill" style="width:80%"></div></div></div>
+    <div class="skill-card"><i class="fa-brands fa-android"></i><p>Android</p></div>
+    <div class="skill-card"><i class="fa-brands fa-apple"></i><p>iOS</p></div>
+    <div class="skill-card"><i class="fa-solid fa-database"></i><p>Firebase</p></div>
+    <div class="skill-card"><i class="fa-brands fa-github"></i><p>Git & GitHub</p></div>
+    <div class="skill-card"><i class="fa-solid fa-plug"></i><p>REST API</p></div>
+    <div class="skill-card"><i class="fa-solid fa-pencil-ruler"></i><p>UI/UX Design</p></div>
+    <div class="skill-card"><i class="fa-solid fa-gears"></i><p>CI/CD</p></div>
+    <div class="skill-card"><i class="fa-brands fa-flutter"></i><p>Flutter</p></div>
+    <div class="skill-card"><i class="fa-solid fa-code"></i><p>Dart</p></div>
   </div>
 </section>
 
