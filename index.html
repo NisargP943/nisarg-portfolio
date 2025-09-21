@@ -8,91 +8,97 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 <style>
 /* General */
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;scroll-behavior:smooth;}
-body{background:linear-gradient(135deg,#f8f9ff,#fff0f6);color:#333;overflow-x:hidden;}
-a{text-decoration:none;color:inherit;margin-bottom:20px;}
-section{position:relative;}
+* { margin:0; padding:0; box-sizing:border-box; font-family:'Poppins',sans-serif; scroll-behavior:smooth;}
+body { background:#f5f7fa; color:#333; }
+a { text-decoration:none; color:inherit; margin-bottom:20px; }
 
 /* Header */
-header{position:fixed;width:100%;top:0;left:0;background:#7b2cbf;color:#fff;display:flex;justify-content:space-between;align-items:center;padding:15px 50px;z-index:1000;box-shadow:0 4px 10px rgba(0,0,0,0.2);}
-header h1{font-size:1.8rem;font-weight:700;color:#fff;}
-nav a{margin-left:25px;font-weight:600;transition:0.3s;}
-nav a:hover{color:#ff5d8f;}
+header { position:fixed; width:100%; top:0; left:0; background:#38b2ac; color:#fff; display:flex; justify-content:space-between; align-items:center; padding:15px 50px; z-index:1000; box-shadow:0 4px 10px rgba(0,0,0,0.15);}
+header h1 { font-size:1.8rem; font-weight:700; color:#fff; }
+nav a { margin-left:25px; font-weight:600; transition:0.3s; }
+nav a:hover { color:#f56565; }
 
 /* Hero */
-.hero{display:flex;align-items:center;min-height:100vh;width:100%;position:relative;}
-.hero-content{display:flex;justify-content:space-between;align-items:center;width:100%;padding:0 50px;flex-wrap:wrap;}
-.hero-left,.hero-right{flex:1;min-width:280px;display:flex;justify-content:center;align-items:center;flex-direction:column;opacity:0;transition:1s;}
-.hero-left.visible,.hero-right.visible{opacity:1;transform:translateX(0);}
-.hero-left img{width:100%;max-width:400px;border-radius:20px;box-shadow:0 10px 25px rgba(0,0,0,0.2);animation:float 4s ease-in-out infinite;}
-.hero-right h1{font-size:3rem;color:#7b2cbf;margin-bottom:20px;text-align:center;}
-.hero-right p{font-size:1.2rem;margin-bottom:25px;text-align:center;}
-.btn{padding:10px 20px;margin:5px;border-radius:8px;font-weight:600;transition:0.3s;cursor:pointer;display:inline-block;}
-.btn-primary{background:#7b2cbf;color:#fff;border:none;}
-.btn-primary:hover{background:#fff;color:#7b2cbf;border:2px solid #7b2cbf;}
-.btn-secondary{background:#fff;color:#7b2cbf;border:2px solid #7b2cbf;}
-.btn-secondary:hover{background:#7b2cbf;color:#fff;border:none;}
+.hero { display:flex; align-items:center; min-height:100vh; width:100vw; background:#f5f7fa; color:#333; position:relative; }
+.hero-content { display:flex; justify-content:space-between; align-items:center; width:100%; padding:0 50px; flex-wrap:wrap; }
+.hero-left, .hero-right { flex:1; min-width:280px; display:flex; justify-content:center; align-items:center; flex-direction:column; opacity:0; transition:1s; }
+.hero-left.visible, .hero-right.visible { opacity:1; transform:translateX(0);}
+.hero-left img { width:100%; max-width:400px; border-radius:20px; box-shadow:0 10px 25px rgba(0,0,0,0.1);}
+.hero-right h1 { font-size:3rem; color:#38b2ac; margin-bottom:20px; text-align:center; }
+.hero-right p { font-size:1.2rem; margin-bottom:25px; text-align:center; }
+.btn { padding:10px 20px; margin-right:10px; border-radius:8px; font-weight:600; transition:0.3s; cursor:pointer; display:inline-block; }
+.btn-primary { background:#38b2ac; color:#fff; border:none;}
+.btn-primary:hover { background:#fff; color:#38b2ac; border:2px solid #38b2ac; }
+.btn-secondary { background:#fff; color:#38b2ac; border:2px solid #38b2ac;}
+.btn-secondary:hover { background:#38b2ac; color:#fff; border:none; }
 
 /* Sections */
-section{padding:80px 50px;max-width:1200px;margin:auto;}
-section h2{text-align:center;font-size:2.5rem;margin-bottom:50px;color:#7b2cbf;position:relative;}
-section h2::after{content:'';width:60px;height:4px;background:#ff5d8f;display:block;margin:10px auto;border-radius:2px;}
+section { padding:80px 50px; max-width:1200px; margin:auto; }
+section h2 { text-align:center; font-size:2.5rem; margin-bottom:50px; color:#38b2ac; }
 
 /* About */
-.about{display:flex;flex-wrap:wrap;align-items:center;gap:40px;}
-.about img{width:300px;height:300px;object-fit:scale-down;border-radius:20px;box-shadow:0 10px 30px rgba(0,0,0,0.1);}
-.about-text{flex:1;min-width:300px;font-size:1.05rem;color:#555;}
-.stats{display:flex;gap:20px;margin-top:20px;flex-wrap:wrap;justify-content:center;}
-.stat{background:#ff5d8f;color:#fff;padding:15px 25px;border-radius:12px;font-weight:700;text-align:center;flex:1;min-width:120px;animation:fadeInUp 1s ease forwards;}
+.about { display:flex; flex-wrap:wrap; align-items:center; gap:40px; background:#e6fffa; padding:40px; border-radius:20px; box-shadow:0 6px 20px rgba(0,0,0,0.05);}
+.about img { width:300px; height:300px; object-fit:scale-down; border-radius:20px; box-shadow:0 10px 20px rgba(0,0,0,0.05);}
+.about-text { flex:1; min-width:300px; font-size:1.05rem; color:#333; }
+.about-text p { margin-bottom:20px; line-height:1.6; }
+.stats { display:flex; gap:20px; margin-top:20px; flex-wrap:wrap; justify-content:center; }
+.stat { background:#f56565; color:#fff; padding:15px 25px; border-radius:12px; font-weight:700; text-align:center; flex:1; min-width:120px; transition:0.3s; }
+.stat:hover { transform:translateY(-5px); }
 
 /* Skills */
-.skills{display:flex;flex-wrap:wrap;gap:20px;justify-content:center;padding:50px 0;}
-.skill-card{flex:0 0 150px;background:#fff;padding:20px;border-radius:15px;text-align:center;box-shadow:0 6px 15px rgba(0,0,0,0.1);transition:0.3s;opacity:0;transform:translateY(50px);border:2px solid #7b2cbf;}
-.skill-card.visible{opacity:1;transform:translateY(0);}
-.skill-card i{font-size:2.5rem;color:#7b2cbf;margin-bottom:10px;}
-.skill-card p{font-weight:600;margin-top:5px;color:#333;}
-.skill-card:hover{transform:translateY(-5px) scale(1.05);box-shadow:0 10px 25px rgba(123,44,191,0.4);}
+.skills { display:flex; flex-wrap:wrap; gap:20px; justify-content:center; padding:50px 0; }
+.skill-card { flex:0 0 150px; background:#fff; padding:20px; border-radius:15px; text-align:center; box-shadow:0 6px 15px rgba(0,0,0,0.1); transition:0.3s; opacity:0; transform:translateY(50px); border:2px solid #38b2ac;}
+.skill-card.visible { opacity:1; transform:translateY(0);}
+.skill-card i { font-size:2.5rem; color:#38b2ac; margin-bottom:10px;}
+.skill-card p { font-weight:600; margin-top:5px; color:#333; }
 
 /* Projects */
-.projects{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:30px;padding-bottom:50px;}
-.project-card{background:#fff;padding:20px;border-radius:15px;box-shadow:0 6px 15px rgba(0,0,0,0.1);transition:0.3s;cursor:pointer;border-left:5px solid #7b2cbf;}
-.project-card:hover{transform:translateY(-5px);box-shadow:0 12px 30px rgba(123,44,191,0.3);}
-.project-card h3{color:#7b2cbf;margin-bottom:10px;}
-.project-card p{color:#555;font-size:0.95rem;}
+.projects { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:30px; padding-bottom:50px; }
+.project-card { background:#fff; padding:20px; border-radius:15px; box-shadow:0 6px 15px rgba(0,0,0,0.1); transition:0.3s; cursor:pointer; border-left:5px solid #38b2ac; }
+.project-card:hover { transform:translateY(-5px); box-shadow:0 12px 30px rgba(0,0,0,0.15);}
+.project-card h3 { color:#38b2ac; margin-bottom:10px; }
+.project-card p { color:#555; font-size:0.95rem; }
 
 /* Experience */
-.timeline{position:relative;padding-left:70px;border-left:3px solid #7b2cbf;margin:20px 0;}
-.exp{position:relative;margin-bottom:50px;opacity:0;transform:translateX(-50px);transition:all 0.8s ease;}
-.exp.visible{opacity:1;transform:translateX(0);}
-.exp i{position:absolute;left:0;top:0;width:50px;height:50px;background:#ff5d8f;color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;box-shadow:0 2px 6px rgba(0,0,0,0.2);transform:translateX(-50%);}
-.exp h3{color:#333;margin-bottom:5px;margin-left:40px;font-weight:700;}
-.exp em{color:#777;margin-left:40px;font-size:0.9rem;}
-.exp p{margin-top:5px;color:#555;margin-left:40px;line-height:1.5;}
+.timeline { position:relative; padding-left:70px; border-left:3px solid #38b2ac; margin:20px 0; }
+.exp { position:relative; margin-bottom:50px; opacity:0; transform:translateX(-50px); transition:all 0.8s ease; }
+.exp.visible { opacity:1; transform:translateX(0); }
+.exp i { position:absolute; left:0; top:0; width:50px; height:50px; background:#f56565; color:#fff; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:20px; box-shadow:0 2px 6px rgba(0,0,0,0.1); transform:translateX(-50%);}
+.exp h3 { color:#333; margin-bottom:5px; margin-left:40px; font-weight:700; }
+.exp em { color:#777; margin-left:40px; font-size:0.9rem; }
+.exp p { margin-top:5px; color:#555; margin-left:40px; line-height:1.5; }
 
 /* Contact */
-.contact{text-align:center;padding:50px 0;}
-.contact p{margin-bottom:20px;color:#666;}
-.contact a{display:inline-block;margin:10px;padding:15px 30px;border-radius:10px;font-weight:700;background:#7b2cbf;color:#fff;transition:0.3s;}
-.contact a:hover{background:#ff5d8f;color:#fff;}
+.contact { text-align:center; padding:50px 0;}
+.contact p { margin-bottom:20px; color:#666; }
+.contact a { display:inline-block; margin:10px; padding:15px 30px; border-radius:10px; font-weight:700; background:#38b2ac; color:#fff; transition:0.3s; }
+.contact a:hover { background:#f56565; color:#fff; }
 
-/* Footer */
-footer{background:#7b2cbf;color:#fff;text-align:center;padding:25px;margin-top:50px;font-weight:500;position:relative;}
+footer { background:#38b2ac; color:#fff; text-align:center; padding:25px; margin-top:50px; font-weight:500; border-radius:10px; }
 
-/* Decorative SVG Waves */
-.top-wave{position:absolute;top:0;left:0;width:100%;z-index:-1;}
-.bottom-wave{position:absolute;bottom:0;left:0;width:100%;z-index:-1;}
+/* Top and Bottom Design */
+.top-design, .bottom-design {
+  position:absolute;
+  width:100%;
+  height:150px;
+  background:linear-gradient(120deg,#38b2ac,#81e6d9);
+  clip-path:polygon(0 0,100% 0,100% 80%,0 100%);
+  z-index:-1;
+}
+.bottom-design { top:auto; bottom:0; transform:rotate(180deg);}
+.hero .top-design { top:0; }
+.hero .bottom-design { bottom:0; }
 
 /* Animations */
-@keyframes float{0%{transform:translateY(0);}50%{transform:translateY(-15px);}100%{transform:translateY(0);}}
-@keyframes fadeInUp{0%{opacity:0;transform:translateY(20px);}100%{opacity:1;transform:translateY(0);}}
+@keyframes float {
+  0% { transform: translateY(0) translateX(0); }
+  100% { transform: translateY(20px) translateX(20px); }
+}
 
-@media(max-width:900px){.hero-content{flex-direction:column;text-align:center;}.skills{justify-content:center;}}
+@media(max-width:900px){ .hero-content { flex-direction:column; text-align:center;} .skills{justify-content:center;} }
 </style>
 </head>
 <body>
-
-<!-- Decorative Top Wave -->
-<svg class="top-wave" viewBox="0 0 1440 200"><path fill="#7b2cbf" fill-opacity="0.2" d="M0,160L48,170.7C96,181,192,203,288,181.3C384,160,480,96,576,85.3C672,75,768,117,864,138.7C960,160,1056,160,1152,165.3C1248,171,1344,181,1392,186.7L1440,192L1440,0L0,0Z"></path></svg>
 
 <header>
   <h1>Flutter Developer</h1>
@@ -108,6 +114,8 @@ footer{background:#7b2cbf;color:#fff;text-align:center;padding:25px;margin-top:5
 
 <!-- Hero -->
 <section class="hero" id="home">
+  <div class="top-design"></div>
+  <div class="bottom-design"></div>
   <div class="hero-content">
     <div class="hero-right">
       <h1>Hi, I'm Nisarg Patel</h1>
@@ -127,7 +135,9 @@ footer{background:#7b2cbf;color:#fff;text-align:center;padding:25px;margin-top:5
   <div class="about">
     <img src="flogot.png" alt="Nisarg Patel">
     <div class="about-text">
-      <p>Flutter Developer with 2+ years experience building high-performance apps with Firebase integration, smooth UI/UX, and scalable architecture. Delivered 10+ projects successfully for clients worldwide.</p>
+      <p>I am a passionate <strong>Flutter Developer</strong> with <strong>2 years of experience</strong> building high-performance mobile applications for Android and iOS. I specialize in clean and scalable code with modern state management solutions like <strong>MobX, GetX, and BLoC</strong>.</p>
+      <p>Throughout my journey, I have developed apps with seamless UI/UX, API integration, Firebase services, authentication, push notifications, and cloud storage. I focus on optimizing performance and creating responsive, user-friendly applications.</p>
+      <p>I enjoy collaborating with designers and backend teams to deliver client-focused solutions and have successfully published multiple apps to the Google Play Store and Apple App Store.</p>
       <div class="stats">
         <div class="stat">10+ Projects</div>
         <div class="stat">6+ Apps Deployed</div>
@@ -213,27 +223,24 @@ footer{background:#7b2cbf;color:#fff;text-align:center;padding:25px;margin-top:5
   <p>&copy; 2025 Nisarg Patel. All Rights Reserved.</p>
 </footer>
 
-<!-- Decorative Bottom Wave -->
-<svg class="bottom-wave" viewBox="0 0 1440 200"><path fill="#ff5d8f" fill-opacity="0.2" d="M0,160L60,149.3C120,139,240,117,360,101.3C480,85,600,75,720,96C840,117,960,171,1080,186.7C1200,203,1320,181,1380,170.7L1440,160L1440,320L0,320Z"></path></svg>
-
 <script>
-function revealOnScroll(){
-  const heroLeft=document.querySelector('.hero-left');
-  const heroRight=document.querySelector('.hero-right');
-  const skillCards=document.querySelectorAll('.skill-card');
-  const expCards=document.querySelectorAll('.exp');
-  const revealElements=[...skillCards,...expCards];
-  const windowHeight=window.innerHeight;
+function revealOnScroll() {
+  const heroLeft = document.querySelector('.hero-left');
+  const heroRight = document.querySelector('.hero-right');
+  const skillCards = document.querySelectorAll('.skill-card');
+  const expCards = document.querySelectorAll('.exp');
+  const revealElements = [...skillCards, ...expCards];
+  const windowHeight = window.innerHeight;
 
-  if(heroLeft.getBoundingClientRect().top<windowHeight-100) heroLeft.classList.add('visible');
-  if(heroRight.getBoundingClientRect().top<windowHeight-100) heroRight.classList.add('visible');
+  if(heroLeft.getBoundingClientRect().top < windowHeight - 100) heroLeft.classList.add('visible');
+  if(heroRight.getBoundingClientRect().top < windowHeight - 100) heroRight.classList.add('visible');
 
-  revealElements.forEach(el=>{
-    if(el.getBoundingClientRect().top<windowHeight-100) el.classList.add('visible');
+  revealElements.forEach(el => {
+    if(el.getBoundingClientRect().top < windowHeight - 100) el.classList.add('visible');
   });
 }
-window.addEventListener('scroll',revealOnScroll);
-window.addEventListener('load',revealOnScroll);
+window.addEventListener('scroll', revealOnScroll);
+window.addEventListener('load', revealOnScroll);
 </script>
 
 </body>
