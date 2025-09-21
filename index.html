@@ -68,6 +68,7 @@ section h2 { text-align:center; font-size:2.5rem; margin-bottom:50px; color:#ff6
 
 /* Contact */
 .contact { text-align:center; padding:50px 0;}
+.contact p { margin-bottom:20px; color:#ccc; }
 .contact a { display:inline-block; margin:10px; padding:15px 30px; border-radius:10px; font-weight:700; background:#ff6f3c; color:#fff; transition:0.3s; }
 .contact a:hover { background:#fff; color:#ff6f3c; }
 
@@ -91,6 +92,7 @@ footer { background:#1b263b; color:#fff; text-align:center; padding:25px; margin
   </nav>
 </header>
 
+<!-- Hero -->
 <section class="hero" id="home">
   <div class="hero-content">
     <div class="hero-right">
@@ -105,7 +107,97 @@ footer { background:#1b263b; color:#fff; text-align:center; padding:25px; margin
   </div>
 </section>
 
-<!-- Sections remain the same (About, Skills, Projects, Experience, Contact, Footer) -->
+<!-- About -->
+<section id="about">
+  <h2>About Me</h2>
+  <div class="about">
+    <img src="flogot.png" alt="Nisarg Patel">
+    <div class="about-text">
+      <p>Flutter Developer with 2+ years experience building high-performance apps with Firebase integration, smooth UI/UX, and scalable architecture. Delivered 10+ projects successfully for clients worldwide.</p>
+      <div class="stats">
+        <div class="stat">10+ Projects</div>
+        <div class="stat">6+ Apps Deployed</div>
+        <div class="stat">2 Years Experience</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Skills -->
+<section id="skills">
+  <h2>Skills</h2>
+  <div class="skills"> 
+    <div class="skill-card"><i class="fa fa-gavel"></i><p>Flutter</p></div>    
+    <div class="skill-card"><i class="fa fa-code"></i><p>Dart</p></div>
+    <div class="skill-card"><i class="fa-brands fa-android"></i><p>Android</p></div>
+    <div class="skill-card"><i class="fa-brands fa-apple"></i><p>iOS</p></div>
+    <div class="skill-card"><i class="fa fa-cloud"></i><p>Firebase</p></div>
+    <div class="skill-card"><i class="fa-brands fa-github"></i><p>Git & GitHub</p></div>
+    <div class="skill-card"><i class="fa-solid fa-plug"></i><p>REST API</p></div>
+    <div class="skill-card"><i class="fa-solid fa-pencil-ruler"></i><p>UI/UX</p></div>
+    <div class="skill-card"><i class="fa-solid fa-database"></i><p>Sqflite</p></div>
+  </div>
+</section>
+
+<!-- Projects -->
+<section id="projects">
+  <h2>Projects</h2>
+  <div class="projects">
+    <div class="project-card">
+      <h3>Getup ExerciseNow</h3>
+      <p>Fitness app with workouts, diet plans, and activity tracking.</p>
+    </div>
+    <div class="project-card">
+      <h3>Wave Tech Service</h3>
+      <p>Service provider app with Firebase backend & payments integration.</p>
+    </div>
+     <div class="project-card">
+      <h3>Wave Partner App</h3>
+      <p>Service provider Partner app with Firebase backend & payments integration.</p>
+    </div>
+    <div class="project-card">
+      <h3>Green Lawns School</h3>
+      <p>School management app for teachers, students & parents.</p>
+    </div>
+    <div class="project-card">
+      <h3>Just Connect</h3>
+      <p>Educational Mobile App specially designed for students.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Experience -->
+<section id="experience">
+  <h2>Experience</h2>
+  <div class="timeline">
+    <div class="exp">
+      <i class="fa-solid fa-briefcase"></i>
+      <h3>Flutter Developer - Hyperlink Infosystem</h3>
+      <em>2023 - 2024</em>
+      <p>Developed client apps with Firebase & REST API integration.</p>
+    </div>
+    <div class="exp">
+      <i class="fa-solid fa-briefcase"></i>
+      <h3>Flutter Developer - Wave Tech Service</h3>
+      <em>2024 - 2025</em>
+      <p>Built custom mobile apps for businesses focusing on performance and design.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Contact -->
+<section id="contact" class="contact">
+  <h2>Contact Me</h2>
+  <p>Reach out for freelance projects or job opportunities.</p>
+  <a href="mailto:np17531@gmail.com"><i class="fa-solid fa-envelope"></i> Email</a>
+  <a href="https://github.com/nisargp943" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
+  <a href="https://www.linkedin.com/in/nisarg-patel-7b8963227" target="_blank"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+</section>
+
+<!-- Footer -->
+<footer>
+  <p>&copy; 2025 Nisarg Patel. All Rights Reserved.</p>
+</footer>
 
 <script>
 function revealOnScroll() {
