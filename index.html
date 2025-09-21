@@ -19,8 +19,8 @@ nav a { margin-left:25px; font-weight:600; transition:0.3s; }
 nav a:hover { color:#ed64a6; }
 
 /* Hero */
-.hero { display:flex; align-items:center; min-height:100vh; width:100vw; background:#f5f7fa; color:#333; position:relative; overflow:hidden; }
-.hero-content { display:flex; justify-content:space-between; align-items:center; width:100%; padding:0 50px; flex-wrap:wrap; z-index:1; position:relative;}
+.hero { display:flex; align-items:center; justify-content:center; min-height:100vh; width:100vw; background:#f5f7fa; color:#333; position:relative; overflow:hidden; }
+.hero-content { display:flex; justify-content:space-between; align-items:center; width:100%; padding:0 50px; flex-wrap:wrap; z-index:2; position:relative;}
 .hero-left, .hero-right { flex:1; min-width:280px; display:flex; justify-content:center; align-items:center; flex-direction:column; opacity:0; transition:1s; }
 .hero-left.visible, .hero-right.visible { opacity:1; transform:translateX(0);}
 .hero-left img { width:100%; max-width:400px; border-radius:20px; box-shadow:0 10px 25px rgba(0,0,0,0.2);}
@@ -32,11 +32,9 @@ nav a:hover { color:#ed64a6; }
 .btn-secondary { background:#fff; color:#2c7a7b; border:2px solid #2c7a7b;}
 .btn-secondary:hover { background:#2c7a7b; color:#fff; border:none; }
 
-/* Waves */
-.top-wave, .bottom-wave { position:absolute; width:100%; overflow:hidden; line-height:0; }
-.top-wave { top:0; transform:rotate(180deg); }
-.bottom-wave { bottom:0; }
-.top-wave svg, .bottom-wave svg { position:relative; display:block; width:calc(100% + 1.3px); height:150px; }
+/* Center Full-Screen Waves */
+.hero-waves { position:absolute; width:100%; height:100%; top:0; left:0; z-index:1; overflow:hidden; }
+.hero-waves svg { width:100%; height:100%; }
 
 /* Sections */
 section { padding:80px 50px; max-width:1200px; margin:auto; }
@@ -100,16 +98,15 @@ footer { background:#2c7a7b; color:#fff; text-align:center; padding:25px; margin
 
 <!-- Hero -->
 <section class="hero" id="home">
-  <!-- Top animated wave -->
-  <div class="top-wave">
-    <svg viewBox="0 0 1440 150" preserveAspectRatio="none">
-      <path fill="#2c7a7b" fill-opacity="0.3">
-        <animate attributeName="d" dur="8s" repeatCount="indefinite"
+  <!-- Center full-screen waves -->
+  <div class="hero-waves">
+    <svg viewBox="0 0 1440 900" preserveAspectRatio="none">
+      <path fill="#2c7a7b" fill-opacity="0.2">
+        <animate attributeName="d" dur="10s" repeatCount="indefinite"
           values="
-          M0,64L60,80C120,96,240,128,360,138.7C480,149,600,139,720,138.7C840,139,960,149,1080,138.7C1200,128,1320,96,1380,80L1440,64L1440,0L0,0Z;
-          M0,80L60,70C120,60,240,50,360,60C480,70,600,90,720,100C840,110,960,120,1080,110C1200,100,1320,80,1380,70L1440,60L1440,0L0,0Z;
-          M0,64L60,80C120,96,240,128,360,138.7C480,149,600,139,720,138.7C840,139,960,149,1080,138.7C1200,128,1320,96,1380,80L1440,64L1440,0L0,0Z
-          " />
+          M0,400 C480,600 960,200 1440,400 L1440,900 L0,900 Z;
+          M0,400 C480,200 960,600 1440,400 L1440,900 L0,900 Z;
+          M0,400 C480,600 960,200 1440,400 L1440,900 L0,900 Z" />
       </path>
     </svg>
   </div>
@@ -117,27 +114,13 @@ footer { background:#2c7a7b; color:#fff; text-align:center; padding:25px; margin
   <div class="hero-content">
     <div class="hero-right">
       <h1>Hi, I'm Nisarg Patel</h1>
-      <p>Flutter Developer | Mobile App Enthusiast | MobX, GetX & BLoC</p>
+      <p>Flutter Developer | Mobile App Enthusiast</p>
       <a href="#projects" class="btn btn-primary">View Projects</a>
       <a href="Nisarg_Patel_Flutter_Developer_CV.pdf" class="btn btn-secondary">Download Resume</a>
     </div>
     <div class="hero-left">
       <img src="IMG_0155.jpeg" alt="Nisarg Patel">
     </div>
-  </div>
-
-  <!-- Bottom animated wave -->
-  <div class="bottom-wave">
-    <svg viewBox="0 0 1440 150" preserveAspectRatio="none">
-      <path fill="#2c7a7b" fill-opacity="0.3">
-        <animate attributeName="d" dur="8s" repeatCount="indefinite"
-          values="
-          M0,64L60,80C120,96,240,128,360,138.7C480,149,600,139,720,138.7C840,139,960,149,1080,138.7C1200,128,1320,96,1380,80L1440,64L1440,150L0,150Z;
-          M0,80L60,70C120,60,240,50,360,60C480,70,600,90,720,100C840,110,960,120,1080,110C1200,100,1320,80,1380,70L1440,60L1440,150L0,150Z;
-          M0,64L60,80C120,96,240,128,360,138.7C480,149,600,139,720,138.7C840,139,960,149,1080,138.7C1200,128,1320,96,1380,80L1440,64L1440,150L0,150Z
-          " />
-      </path>
-    </svg>
   </div>
 </section>
 
@@ -147,7 +130,7 @@ footer { background:#2c7a7b; color:#fff; text-align:center; padding:25px; margin
   <div class="about">
     <img src="flogot.png" alt="Nisarg Patel">
     <div class="about-text">
-      <p>Flutter Developer with 2+ years of experience building high-performance apps using MobX, GetX & BLoC for state management. Skilled in Firebase integration, smooth UI/UX, and scalable architecture. Delivered 10+ projects successfully for clients worldwide.</p>
+      <p>Flutter Developer with 2+ years experience building high-performance apps using MobX, GetX, and BLoC for state management. Skilled in Firebase, REST APIs, and scalable architecture. Delivered 10+ projects successfully for clients worldwide.</p>
       <div class="stats">
         <div class="stat">10+ Projects</div>
         <div class="stat">6+ Apps Deployed</div>
@@ -170,6 +153,9 @@ footer { background:#2c7a7b; color:#fff; text-align:center; padding:25px; margin
     <div class="skill-card"><i class="fa-solid fa-plug"></i><p>REST API</p></div>
     <div class="skill-card"><i class="fa-solid fa-pencil-ruler"></i><p>UI/UX</p></div>
     <div class="skill-card"><i class="fa-solid fa-database"></i><p>Sqflite</p></div>
+    <div class="skill-card"><i class="fa-solid fa-layer-group"></i><p>MobX</p></div>
+    <div class="skill-card"><i class="fa-solid fa-cube"></i><p>GetX</p></div>
+    <div class="skill-card"><i class="fa-solid fa-project-diagram"></i><p>BLoC</p></div>
   </div>
 </section>
 
@@ -208,13 +194,13 @@ footer { background:#2c7a7b; color:#fff; text-align:center; padding:25px; margin
       <i class="fa-solid fa-briefcase"></i>
       <h3>Flutter Developer - Hyperlink Infosystem</h3>
       <em>2023 - 2024</em>
-      <p>Developed client apps with Firebase & REST API integration using MobX & BLoC.</p>
+      <p>Developed client apps with Firebase & REST API integration.</p>
     </div>
     <div class="exp">
       <i class="fa-solid fa-briefcase"></i>
       <h3>Flutter Developer - Wave Tech Service</h3>
       <em>2024 - 2025</em>
-      <p>Built custom mobile apps for businesses focusing on performance, design, and GetX state management.</p>
+      <p>Built custom mobile apps for businesses focusing on performance and design.</p>
     </div>
   </div>
 </section>
