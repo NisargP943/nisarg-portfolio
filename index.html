@@ -53,10 +53,34 @@
     nav a:hover {color:#9333ea;}
 
     /* Hero */
-    .hero {padding:140px 20px 100px; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; max-width:1200px; margin:auto; color:#fff;}
-    .hero-text {flex:1; min-width:280px;}
-    .hero-text h2 {font-size:3rem; font-weight:700; margin-bottom:15px;}
-    .hero-text p {font-size:1.2rem; margin-bottom:25px; max-width:600px;}
+   /* Hero */
+.hero {
+  padding: 140px 20px 100px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: auto;
+  color: #fff;
+}
+.hero-text {
+  flex: 0 0 55%; /* lock text to left side (55% width) */
+  min-width: 300px;
+  text-align: left; /* force text alignment left */
+}
+@media(max-width:900px){
+  .hero {
+    flex-direction: column;
+    text-align: center;
+  }
+  .hero-text {
+    flex: 1;
+    text-align: center; /* center on mobile */
+  }
+  .hero img {
+    margin: 30px 0 0 0;
+  }
+}
     .hero-text .btn {display:inline-block; padding:12px 24px; margin-right:10px; border-radius:8px; font-weight:600; transition:0.3s; cursor:pointer;}
     .btn-primary {background:#2563eb; color:#fff;}
     .btn-primary:hover {background:#1e3a8a;}
