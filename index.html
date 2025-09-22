@@ -19,7 +19,7 @@ nav a { margin-left:25px; font-weight:600; transition:0.3s; }
 nav a:hover { color:#ed64a6; }
 
 /* Hero */
-.hero { display:flex; align-items:center; justify-content:center; min-height:100vh; width:100vw; background:#f5f7fa; color:#333; position:relative; overflow:hidden; }
+.hero { display:flex; align-items:center; justify-content:center; min-height:100vh; width:100%; background:#f5f7fa; color:#333; position:relative; overflow:hidden; }
 .hero-content { display:flex; justify-content:space-between; align-items:center; width:100%; padding:0 50px; flex-wrap:wrap; z-index:2; position:relative;}
 .hero-left, .hero-right { flex:1; min-width:280px; display:flex; justify-content:center; align-items:center; flex-direction:column; opacity:0; transition:1s; }
 .hero-left.visible, .hero-right.visible { opacity:1; transform:translateX(0);}
@@ -32,9 +32,8 @@ nav a:hover { color:#ed64a6; }
 .btn-secondary { background:#fff; color:#2c7a7b; border:2px solid #2c7a7b;}
 .btn-secondary:hover { background:#2c7a7b; color:#fff; border:none; }
 
-/* Center Full-Screen Waves */
-.hero-waves { position:absolute; width:100%; height:100%; top:0; left:0; z-index:1; overflow:hidden; }
-.hero-waves svg { width:100%; height:100%; }
+/* Waves */
+.wave-top svg, .wave-bottom svg { display:block; width:100%; height:100px; }
 
 /* Sections */
 section { padding:80px 50px; max-width:1200px; margin:auto; }
@@ -76,7 +75,7 @@ section h2 { text-align:center; font-size:2.5rem; margin-bottom:50px; color:#2c7
 .contact a { display:inline-block; margin:10px; padding:15px 30px; border-radius:10px; font-weight:700; background:#2c7a7b; color:#fff; transition:0.3s; }
 .contact a:hover { background:#ed64a6; color:#fff; }
 
-footer { background:#2c7a7b; color:#fff; text-align:center; padding:25px; margin-top:50px; font-weight:500; }
+footer { background:#2c7a7b; color:#fff; text-align:center; padding:25px; margin-top:0; font-weight:500; }
 
 /* Responsive */
 @media(max-width:900px){ .hero-content { flex-direction:column; text-align:center;} .skills{justify-content:center;} }
@@ -85,159 +84,4 @@ footer { background:#2c7a7b; color:#fff; text-align:center; padding:25px; margin
 <body>
 
 <header>
-  <h1>Flutter Developer</h1>
-  <nav>
-    <a href="#home">Home</a>
-    <a href="#about">About</a>
-    <a href="#skills">Skills</a>
-    <a href="#projects">Projects</a>
-    <a href="#experience">Experience</a>
-    <a href="#contact">Contact</a>
-  </nav>
-</header>
-
-<!-- Hero -->
-<section class="hero" id="home">
-  <!-- Center full-screen waves -->
-  <div class="hero-waves">
-    <svg viewBox="0 0 1440 900" preserveAspectRatio="none">
-      <path fill="#2c7a7b" fill-opacity="0.2">
-        <animate attributeName="d" dur="10s" repeatCount="indefinite"
-          values="
-          M0,400 C480,600 960,200 1440,400 L1440,900 L0,900 Z;
-          M0,400 C480,200 960,600 1440,400 L1440,900 L0,900 Z;
-          M0,400 C480,600 960,200 1440,400 L1440,900 L0,900 Z" />
-      </path>
-    </svg>
-  </div>
-
-  <div class="hero-content">
-    <div class="hero-right">
-      <h1>Hi, I'm Nisarg Patel</h1>
-      <p>Flutter Developer | Mobile App Enthusiast</p>
-      <a href="#projects" class="btn btn-primary">View Projects</a>
-      <a href="Nisarg_Patel_Flutter_Developer_CV.pdf" class="btn btn-secondary">Download Resume</a>
-    </div>
-    <div class="hero-left">
-      <img src="IMG_0155.jpeg" alt="Nisarg Patel">
-    </div>
-  </div>
-</section>
-
-<!-- About -->
-<section id="about">
-  <h2>About Me</h2>
-  <div class="about">
-    <img src="flogot.png" alt="Nisarg Patel">
-    <div class="about-text">
-      <p>Flutter Developer with 2+ years experience building high-performance apps using MobX, GetX, and BLoC for state management. Skilled in Firebase, REST APIs, and scalable architecture. Delivered 10+ projects successfully for clients worldwide.</p>
-      <div class="stats">
-        <div class="stat">10+ Projects</div>
-        <div class="stat">6+ Apps Deployed</div>
-        <div class="stat">2 Years Experience</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Skills -->
-<section id="skills">
-  <h2>Skills</h2>
-  <div class="skills"> 
-    <div class="skill-card"><i class="fa fa-gavel"></i><p>Flutter</p></div>    
-    <div class="skill-card"><i class="fa fa-code"></i><p>Dart</p></div>
-    <div class="skill-card"><i class="fa-brands fa-android"></i><p>Android</p></div>
-    <div class="skill-card"><i class="fa-brands fa-apple"></i><p>iOS</p></div>
-    <div class="skill-card"><i class="fa fa-cloud"></i><p>Firebase</p></div>
-    <div class="skill-card"><i class="fa-brands fa-github"></i><p>Git & GitHub</p></div>
-    <div class="skill-card"><i class="fa-solid fa-plug"></i><p>REST API</p></div>
-    <div class="skill-card"><i class="fa-solid fa-pencil-ruler"></i><p>UI/UX</p></div>
-    <div class="skill-card"><i class="fa-solid fa-database"></i><p>Sqflite</p></div>
-    <div class="skill-card"><i class="fa-solid fa-layer-group"></i><p>MobX</p></div>
-    <div class="skill-card"><i class="fa-solid fa-cube"></i><p>GetX</p></div>
-    <div class="skill-card"><i class="fa-solid fa-project-diagram"></i><p>BLoC</p></div>
-  </div>
-</section>
-
-<!-- Projects -->
-<section id="projects">
-  <h2>Projects</h2>
-  <div class="projects">
-    <div class="project-card">
-      <h3>Getup ExerciseNow</h3>
-      <p>Fitness app with workouts, diet plans, and activity tracking.</p>
-    </div>
-    <div class="project-card">
-      <h3>Wave Tech Service</h3>
-      <p>Service provider app with Firebase backend & payments integration.</p>
-    </div>
-     <div class="project-card">
-      <h3>Wave Partner App</h3>
-      <p>Partner app with Firebase backend & payments integration.</p>
-    </div>
-    <div class="project-card">
-      <h3>Green Lawns School</h3>
-      <p>School management app for teachers, students & parents.</p>
-    </div>
-    <div class="project-card">
-      <h3>Just Connect</h3>
-      <p>Educational Mobile App specially designed for students.</p>
-    </div>
-  </div>
-</section>
-
-<!-- Experience -->
-<section id="experience">
-  <h2>Experience</h2>
-  <div class="timeline">
-    <div class="exp">
-      <i class="fa-solid fa-briefcase"></i>
-      <h3>Flutter Developer - Hyperlink Infosystem</h3>
-      <em>2023 - 2024</em>
-      <p>Developed client apps with Firebase & REST API integration.</p>
-    </div>
-    <div class="exp">
-      <i class="fa-solid fa-briefcase"></i>
-      <h3>Flutter Developer - Wave Tech Service</h3>
-      <em>2024 - 2025</em>
-      <p>Built custom mobile apps for businesses focusing on performance and design.</p>
-    </div>
-  </div>
-</section>
-
-<!-- Contact -->
-<section id="contact" class="contact">
-  <h2>Contact Me</h2>
-  <p>Reach out for freelance projects or job opportunities.</p>
-  <a href="mailto:np17531@gmail.com"><i class="fa-solid fa-envelope"></i> Email</a>
-  <a href="https://github.com/nisargp943" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
-  <a href="https://www.linkedin.com/in/nisarg-patel-7b8963227" target="_blank"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
-</section>
-
-<!-- Footer -->
-<footer>
-  <p>&copy; 2025 Nisarg Patel. All Rights Reserved.</p>
-</footer>
-
-<script>
-function revealOnScroll() {
-  const heroLeft = document.querySelector('.hero-left');
-  const heroRight = document.querySelector('.hero-right');
-  const skillCards = document.querySelectorAll('.skill-card');
-  const expCards = document.querySelectorAll('.exp');
-  const revealElements = [...skillCards, ...expCards];
-  const windowHeight = window.innerHeight;
-
-  if(heroLeft.getBoundingClientRect().top < windowHeight - 100) heroLeft.classList.add('visible');
-  if(heroRight.getBoundingClientRect().top < windowHeight - 100) heroRight.classList.add('visible');
-
-  revealElements.forEach(el => {
-    if(el.getBoundingClientRect().top < windowHeight - 100) el.classList.add('visible');
-  });
-}
-window.addEventListener('scroll', revealOnScroll);
-window.addEventListener('load', revealOnScroll);
-</script>
-
-</body>
-</html>
+  <h1>Flutter Develo
