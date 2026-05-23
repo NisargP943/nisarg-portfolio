@@ -306,13 +306,15 @@ nav {
   color: var(--amber); letter-spacing: 0.08em;
 }
 .project-title { font-family: var(--font-serif); font-size: 22px; color: var(--white); }
+/* FIX: allow full description to show — no line clamping */
 .project-desc {
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
+  font-size: 14px;
+  color: var(--slate);
+  line-height: 1.75;
   white-space: normal;
-}.project-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+  overflow: visible;
+}
+.project-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: auto; }
 .tag {
   font-size: 11px; font-weight: 600; letter-spacing: 0.05em;
   padding: 4px 10px; border-radius: 4px;
@@ -564,6 +566,7 @@ footer {
     <div class="section-tag">Technical Skills</div>
     <h2 class="section-title">Tools of the <em>trade</em></h2>
   </div>
+  <!-- FIX: all skill cards are now correctly inside .skills-grid -->
   <div class="skills-grid">
     <div class="skill-card reveal">
       <div class="skill-icon"><img src="flogot.png" alt="Flutter"/></div>
@@ -647,66 +650,61 @@ footer {
       <div class="skill-name">CI/CD</div>
       <div class="skill-level"><div class="skill-level-fill" style="width:70%"></div></div>
     </div>
+    <div class="skill-card reveal">
+      <div class="skill-icon">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/><circle cx="17" cy="17" r="4"/><path d="M17 15.5v1.5l1 1"/>
+        </svg>
+      </div>
+      <div class="skill-name">Play Store Deployment</div>
+      <div class="skill-level"><div class="skill-level-fill" style="width:90%"></div></div>
+    </div>
+    <div class="skill-card reveal">
+      <div class="skill-icon">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M12 2a10 10 0 1 0 0 20A10 10 0 0 0 12 2z"/><path d="M8 12l2.5 2.5L16 9"/>
+        </svg>
+      </div>
+      <div class="skill-name">App Store Deployment</div>
+      <div class="skill-level"><div class="skill-level-fill" style="width:82%"></div></div>
+    </div>
+    <div class="skill-card reveal">
+      <div class="skill-icon">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/>
+        </svg>
+      </div>
+      <div class="skill-name">Fastlane</div>
+      <div class="skill-level"><div class="skill-level-fill" style="width:75%"></div></div>
+    </div>
+    <div class="skill-card reveal">
+      <div class="skill-icon">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/>
+        </svg>
+      </div>
+      <div class="skill-name">Firebase App Distribution</div>
+      <div class="skill-level"><div class="skill-level-fill" style="width:85%"></div></div>
+    </div>
+    <div class="skill-card reveal">
+      <div class="skill-icon">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/>
+        </svg>
+      </div>
+      <div class="skill-name">App Signing &amp; Keystore</div>
+      <div class="skill-level"><div class="skill-level-fill" style="width:88%"></div></div>
+    </div>
+    <div class="skill-card reveal">
+      <div class="skill-icon">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/>
+        </svg>
+      </div>
+      <div class="skill-name">ProGuard / R8</div>
+      <div class="skill-level"><div class="skill-level-fill" style="width:72%"></div></div>
+    </div>
   </div>
-  <div class="skill-card reveal">
-  <div class="skill-icon">
-    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-      <path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 12l10 5 10-5"/><circle cx="18" cy="18" r="4"/><path d="M18 16v2l1 1"/>
-    </svg>
-  </div>
-  <div class="skill-name">Play Store Deployment</div>
-  <div class="skill-level"><div class="skill-level-fill" style="width:90%"></div></div>
-</div>
-
-<div class="skill-card reveal">
-  <div class="skill-icon">
-    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-      <path d="M12 2a10 10 0 1 0 0 20A10 10 0 0 0 12 2z"/><path d="M8 12l2.5 2.5L16 9"/>
-    </svg>
-  </div>
-  <div class="skill-name">App Store Deployment</div>
-  <div class="skill-level"><div class="skill-level-fill" style="width:82%"></div></div>
-</div>
-
-<div class="skill-card reveal">
-  <div class="skill-icon">
-    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-      <path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/>
-    </svg>
-  </div>
-  <div class="skill-name">Fastlane</div>
-  <div class="skill-level"><div class="skill-level-fill" style="width:75%"></div></div>
-</div>
-
-<div class="skill-card reveal">
-  <div class="skill-icon">
-    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-      <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/>
-    </svg>
-  </div>
-  <div class="skill-name">Firebase App Distribution</div>
-  <div class="skill-level"><div class="skill-level-fill" style="width:85%"></div></div>
-</div>
-
-<div class="skill-card reveal">
-  <div class="skill-icon">
-    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-      <rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/>
-    </svg>
-  </div>
-  <div class="skill-name">App Signing & Keystore</div>
-  <div class="skill-level"><div class="skill-level-fill" style="width:88%"></div></div>
-</div>
-
-<div class="skill-card reveal">
-  <div class="skill-icon">
-    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/>
-    </svg>
-  </div>
-  <div class="skill-name">ProGuard / R8</div>
-  <div class="skill-level"><div class="skill-level-fill" style="width:72%"></div></div>
-</div>
 </section>
 
 <hr class="divider"/>
@@ -717,6 +715,7 @@ footer {
     <div class="section-tag">Portfolio</div>
     <h2 class="section-title">Selected <em>Projects</em></h2>
   </div>
+  <!-- FIX: all 6 project cards are now correctly inside .projects-grid -->
   <div class="projects-grid">
     <div class="project-card reveal">
       <div class="project-num">01</div>
@@ -762,7 +761,7 @@ footer {
         <span class="tag">GetX</span>
       </div>
     </div>
-       <div class="project-card reveal">
+    <div class="project-card reveal">
       <div class="project-num">05</div>
       <div class="project-title">Glatro Partner App</div>
       <p class="project-desc">Glatro Delivery Partner app is designed for fast and efficient deliveries with smart navigation, order management, and seamless earning tracking for delivery partners.</p>
@@ -773,8 +772,7 @@ footer {
         <span class="tag">GetX</span>
       </div>
     </div>
-    </div>
-       <div class="project-card reveal">
+    <div class="project-card reveal">
       <div class="project-num">06</div>
       <div class="project-title">Glatro Vendor Partner</div>
       <p class="project-desc">Glatro Vendor Partner is a smart business management app designed for vendors and retailers to manage their store operations efficiently on the Glatro platform.</p>
@@ -785,7 +783,6 @@ footer {
         <span class="tag">GetX</span>
       </div>
     </div>
-
   </div>
 </section>
 
@@ -798,7 +795,6 @@ footer {
     <h2 class="section-title">Work <em>Experience</em></h2>
   </div>
   <div class="experience-list">
-
     <div class="exp-item reveal">
       <div class="exp-time"><span>2023 — 2024</span></div>
       <div class="exp-dot"></div>
@@ -808,7 +804,6 @@ footer {
         <p class="exp-desc">Developed and delivered multiple cross-platform mobile apps for international clients. Worked with Firebase, REST APIs, and custom UI components to ensure high-quality, performant builds.</p>
       </div>
     </div>
-
     <div class="exp-item reveal">
       <div class="exp-time"><span>2024 — 2025</span></div>
       <div class="exp-dot"></div>
@@ -818,7 +813,6 @@ footer {
         <p class="exp-desc">Led development of the Wave Tech Service and Wave Partner apps. Architected scalable state management solutions and delivered polished UI/UX that improved user engagement significantly.</p>
       </div>
     </div>
-
     <div class="exp-item reveal">
       <div class="exp-time"><span>2025 — Present</span></div>
       <div class="exp-dot"></div>
@@ -829,7 +823,6 @@ footer {
         <span class="exp-badge">Currently Here</span>
       </div>
     </div>
-
   </div>
 </section>
 
@@ -895,15 +888,12 @@ footer {
 </footer>
 
 <script>
-// Intersection Observer for scroll reveal
+// Intersection Observer for scroll reveal + skill bar animation
 const revealEls = document.querySelectorAll('.reveal');
 const io = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
       entry.target.classList.add('visible');
-      // Animate skill bars when visible
-      const fill = entry.target.querySelector('.skill-level-fill');
-      if (fill) entry.target.classList.add('visible');
     }
   });
 }, { threshold: 0.12 });
