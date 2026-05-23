@@ -306,8 +306,13 @@ nav {
   color: var(--amber); letter-spacing: 0.08em;
 }
 .project-title { font-family: var(--font-serif); font-size: 22px; color: var(--white); }
-.project-desc { font-size: 14px; color: var(--slate); line-height: 1.7; flex: 1; }
-.project-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+.project-desc {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  white-space: normal;
+}.project-tags { display: flex; flex-wrap: wrap; gap: 8px; }
 .tag {
   font-size: 11px; font-weight: 600; letter-spacing: 0.05em;
   padding: 4px 10px; border-radius: 4px;
@@ -643,6 +648,65 @@ footer {
       <div class="skill-level"><div class="skill-level-fill" style="width:70%"></div></div>
     </div>
   </div>
+  <div class="skill-card reveal">
+  <div class="skill-icon">
+    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+      <path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 12l10 5 10-5"/><circle cx="18" cy="18" r="4"/><path d="M18 16v2l1 1"/>
+    </svg>
+  </div>
+  <div class="skill-name">Play Store Deployment</div>
+  <div class="skill-level"><div class="skill-level-fill" style="width:90%"></div></div>
+</div>
+
+<div class="skill-card reveal">
+  <div class="skill-icon">
+    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+      <path d="M12 2a10 10 0 1 0 0 20A10 10 0 0 0 12 2z"/><path d="M8 12l2.5 2.5L16 9"/>
+    </svg>
+  </div>
+  <div class="skill-name">App Store Deployment</div>
+  <div class="skill-level"><div class="skill-level-fill" style="width:82%"></div></div>
+</div>
+
+<div class="skill-card reveal">
+  <div class="skill-icon">
+    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+      <path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/>
+    </svg>
+  </div>
+  <div class="skill-name">Fastlane</div>
+  <div class="skill-level"><div class="skill-level-fill" style="width:75%"></div></div>
+</div>
+
+<div class="skill-card reveal">
+  <div class="skill-icon">
+    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+      <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/>
+    </svg>
+  </div>
+  <div class="skill-name">Firebase App Distribution</div>
+  <div class="skill-level"><div class="skill-level-fill" style="width:85%"></div></div>
+</div>
+
+<div class="skill-card reveal">
+  <div class="skill-icon">
+    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+      <rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/>
+    </svg>
+  </div>
+  <div class="skill-name">App Signing & Keystore</div>
+  <div class="skill-level"><div class="skill-level-fill" style="width:88%"></div></div>
+</div>
+
+<div class="skill-card reveal">
+  <div class="skill-icon">
+    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/>
+    </svg>
+  </div>
+  <div class="skill-name">ProGuard / R8</div>
+  <div class="skill-level"><div class="skill-level-fill" style="width:72%"></div></div>
+</div>
 </section>
 
 <hr class="divider"/>
