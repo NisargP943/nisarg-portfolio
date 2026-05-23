@@ -1,517 +1,830 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Nisarg Patel | Flutter Developer</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Inter', sans-serif;
-        }
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Nisarg Patel — Flutter Developer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+:root {
+  --navy: #0b0f1a;
+  --navy-mid: #111827;
+  --navy-card: #161d2e;
+  --navy-border: #1e2a3f;
+  --amber: #f59e0b;
+  --amber-light: #fcd34d;
+  --amber-muted: #78350f;
+  --teal: #14b8a6;
+  --slate: #94a3b8;
+  --slate-mid: #64748b;
+  --white: #f8fafc;
+  --white-dim: #e2e8f0;
+  --font-serif: 'DM Serif Display', Georgia, serif;
+  --font-sans: 'DM Sans', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--navy);
+  color: var(--white);
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+a { text-decoration: none; color: inherit; }
 
-        body {
-            background: #fdfdfd;
-            color: #222;
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
+/* ─── NOISE OVERLAY ─── */
+body::after {
+  content: '';
+  position: fixed; inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none; z-index: 9999; opacity: 0.35;
+}
 
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
+/* ─── NAV ─── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 60px; height: 68px;
+  background: rgba(11,15,26,0.85);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--navy-border);
+}
+.nav-logo {
+  font-family: var(--font-mono);
+  font-size: 13px; font-weight: 500;
+  color: var(--amber); letter-spacing: 0.05em;
+}
+.nav-links { display: flex; gap: 36px; }
+.nav-links a {
+  font-size: 13px; font-weight: 500; letter-spacing: 0.06em;
+  text-transform: uppercase; color: var(--slate);
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--white); }
 
-        /* Animated Background Gradient */
-        body::before {
-            content: "";
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(-45deg, #2563eb, #1e3a8a, #9333ea, #2563eb);
-            background-size: 400% 400%;
-            z-index: -2;
-            animation: gradientBG 15s ease infinite;
-        }
+/* ─── HERO ─── */
+.hero {
+  min-height: 100vh;
+  display: flex; align-items: center;
+  padding: 120px 60px 80px;
+  position: relative; overflow: hidden;
+}
+.hero-grid-bg {
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(245,158,11,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(245,158,11,0.04) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+.hero-glow {
+  position: absolute; top: -200px; right: -100px;
+  width: 700px; height: 700px;
+  background: radial-gradient(circle, rgba(245,158,11,0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+.hero-glow-2 {
+  position: absolute; bottom: -200px; left: -100px;
+  width: 500px; height: 500px;
+  background: radial-gradient(circle, rgba(20,184,166,0.06) 0%, transparent 70%);
+  pointer-events: none;
+}
+.hero-inner {
+  position: relative; max-width: 1100px; margin: auto; width: 100%;
+  display: grid; grid-template-columns: 1fr 380px; gap: 80px; align-items: center;
+}
+.hero-tag {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: var(--font-mono); font-size: 12px;
+  color: var(--amber); letter-spacing: 0.1em; text-transform: uppercase;
+  margin-bottom: 24px;
+}
+.hero-tag::before {
+  content: ''; width: 28px; height: 1px; background: var(--amber);
+}
+.hero h1 {
+  font-family: var(--font-serif);
+  font-size: clamp(48px, 6vw, 80px);
+  line-height: 1.05; font-weight: 400;
+  color: var(--white); margin-bottom: 8px;
+}
+.hero h1 em {
+  font-style: italic; color: var(--amber);
+}
+.hero-sub {
+  font-size: 17px; color: var(--slate); max-width: 520px;
+  margin-bottom: 44px; line-height: 1.75;
+}
+.hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+.btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 13px 28px; border-radius: 6px;
+  font-family: var(--font-sans); font-size: 14px; font-weight: 600;
+  transition: all 0.2s; cursor: pointer; border: none;
+}
+.btn-amber {
+  background: var(--amber); color: var(--navy);
+}
+.btn-amber:hover { background: var(--amber-light); transform: translateY(-1px); }
+.btn-ghost {
+  background: transparent; color: var(--white);
+  border: 1px solid var(--navy-border);
+}
+.btn-ghost:hover { border-color: var(--amber); color: var(--amber); transform: translateY(-1px); }
 
-        @keyframes gradientBG {
-            0% {
-                background-position: 0% 50%;
-            }
+/* Hero photo card */
+.hero-photo-wrap {
+  position: relative;
+}
+.hero-photo-frame {
+  position: relative;
+  border-radius: 16px; overflow: hidden;
+  border: 1px solid var(--navy-border);
+}
+.hero-photo-frame img {
+  width: 100%; display: block;
+  aspect-ratio: 3/4; object-fit: cover;
+  filter: grayscale(20%) contrast(1.05);
+}
+.hero-photo-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(11,15,26,0.5) 0%, transparent 60%);
+}
+.hero-photo-badge {
+  position: absolute; bottom: 20px; left: 20px; right: 20px;
+  background: rgba(11,15,26,0.8); backdrop-filter: blur(8px);
+  border: 1px solid var(--navy-border); border-radius: 10px;
+  padding: 14px 16px;
+  display: flex; align-items: center; gap: 12px;
+}
+.badge-dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: #22c55e;
+  box-shadow: 0 0 0 3px rgba(34,197,94,0.2);
+  flex-shrink: 0;
+  animation: pulse-dot 2s ease-in-out infinite;
+}
+@keyframes pulse-dot {
+  0%,100% { box-shadow: 0 0 0 3px rgba(34,197,94,0.2); }
+  50% { box-shadow: 0 0 0 6px rgba(34,197,94,0.08); }
+}
+.badge-text { font-size: 13px; font-weight: 500; color: var(--white-dim); }
+.badge-text span { display: block; font-size: 11px; color: var(--slate); font-weight: 400; }
+.hero-deco-line {
+  position: absolute; top: 30px; right: -20px; bottom: 30px; left: -20px;
+  border: 1px solid rgba(245,158,11,0.15); border-radius: 20px;
+  pointer-events: none;
+}
 
-            50% {
-                background-position: 100% 50%;
-            }
+/* ─── SECTION WRAPPER ─── */
+.section { padding: 100px 60px; max-width: 1200px; margin: auto; }
+.section-header { margin-bottom: 64px; }
+.section-tag {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: var(--font-mono); font-size: 12px;
+  color: var(--amber); letter-spacing: 0.1em; text-transform: uppercase;
+  margin-bottom: 14px;
+}
+.section-tag::before { content: ''; width: 20px; height: 1px; background: var(--amber); }
+.section-title {
+  font-family: var(--font-serif);
+  font-size: clamp(32px, 4vw, 48px); font-weight: 400;
+  color: var(--white);
+}
+.section-title em { font-style: italic; color: var(--amber); }
 
-            100% {
-                background-position: 0% 50%;
-            }
-        }
+/* Divider */
+.divider {
+  border: none; border-top: 1px solid var(--navy-border);
+  max-width: 1100px; margin: 0 auto;
+}
 
-        /* Floating Circles */
-        .bg-circles span {
-            position: fixed;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.15);
-            animation: float 20s linear infinite;
-            z-index: -1;
-        }
+/* ─── STATS BAR ─── */
+.stats-bar {
+  border-top: 1px solid var(--navy-border);
+  border-bottom: 1px solid var(--navy-border);
+  background: var(--navy-mid);
+}
+.stats-inner {
+  max-width: 1100px; margin: auto; padding: 36px 60px;
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px;
+}
+.stat { text-align: center; }
+.stat-num {
+  font-family: var(--font-serif); font-size: 40px;
+  color: var(--amber); line-height: 1;
+}
+.stat-label { font-size: 13px; color: var(--slate); margin-top: 6px; }
 
-        .bg-circles span:nth-child(1) {
-            width: 150px;
-            height: 150px;
-            top: 10%;
-            left: 15%;
-            animation-duration: 25s;
-        }
+/* ─── ABOUT ─── */
+.about-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start;
+}
+.about-text p {
+  font-size: 16px; color: var(--slate); line-height: 1.85;
+  margin-bottom: 20px;
+}
+.about-text p strong { color: var(--white); font-weight: 600; }
+.about-details {
+  display: grid; gap: 16px;
+}
+.detail-row {
+  display: flex; align-items: center; gap: 16px;
+  padding: 16px 20px;
+  background: var(--navy-card); border: 1px solid var(--navy-border);
+  border-radius: 8px;
+}
+.detail-icon {
+  width: 36px; height: 36px; border-radius: 8px;
+  background: rgba(245,158,11,0.1);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.detail-icon svg { width: 18px; height: 18px; stroke: var(--amber); fill: none; stroke-width: 1.8; }
+.detail-info { flex: 1; }
+.detail-label { font-size: 11px; color: var(--slate-mid); text-transform: uppercase; letter-spacing: 0.07em; }
+.detail-val { font-size: 14px; color: var(--white); font-weight: 500; margin-top: 2px; }
 
-        .bg-circles span:nth-child(2) {
-            width: 100px;
-            height: 100px;
-            top: 70%;
-            left: 25%;
-            animation-duration: 18s;
-        }
+/* ─── SKILLS ─── */
+.skills-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 14px;
+}
+.skill-card {
+  background: var(--navy-card); border: 1px solid var(--navy-border);
+  border-radius: 10px; padding: 22px 18px;
+  display: flex; flex-direction: column; align-items: center; gap: 12px;
+  transition: all 0.25s;
+  cursor: default;
+}
+.skill-card:hover {
+  border-color: var(--amber); transform: translateY(-3px);
+  background: rgba(245,158,11,0.05);
+}
+.skill-card:hover .skill-icon { color: var(--amber); }
+.skill-icon {
+  font-size: 28px; color: var(--white-dim);
+  transition: color 0.25s;
+  display: flex; align-items: center; justify-content: center;
+  width: 44px; height: 44px;
+}
+.skill-icon img { width: 32px; height: 32px; object-fit: contain; }
+.skill-name { font-size: 13px; font-weight: 600; color: var(--white); text-align: center; }
+.skill-level {
+  width: 100%; height: 2px; background: var(--navy-border); border-radius: 2px; overflow: hidden;
+}
+.skill-level-fill {
+  height: 100%; background: var(--amber); border-radius: 2px;
+  transform: scaleX(0); transform-origin: left;
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.skill-card.visible .skill-level-fill { transform: scaleX(1); }
 
-        .bg-circles span:nth-child(3) {
-            width: 200px;
-            height: 200px;
-            top: 40%;
-            left: 80%;
-            animation-duration: 30s;
-        }
+/* ─── PROJECTS ─── */
+.projects-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;
+}
+.project-card {
+  background: var(--navy-card); border: 1px solid var(--navy-border);
+  border-radius: 12px; padding: 28px 26px;
+  display: flex; flex-direction: column; gap: 16px;
+  transition: all 0.25s; position: relative; overflow: hidden;
+}
+.project-card::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0;
+  height: 2px; background: var(--amber);
+  transform: scaleX(0); transform-origin: left;
+  transition: transform 0.35s ease;
+}
+.project-card:hover { border-color: rgba(245,158,11,0.3); transform: translateY(-4px); }
+.project-card:hover::before { transform: scaleX(1); }
+.project-num {
+  font-family: var(--font-mono); font-size: 11px;
+  color: var(--amber); letter-spacing: 0.08em;
+}
+.project-title { font-family: var(--font-serif); font-size: 22px; color: var(--white); }
+.project-desc { font-size: 14px; color: var(--slate); line-height: 1.7; flex: 1; }
+.project-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+.tag {
+  font-size: 11px; font-weight: 600; letter-spacing: 0.05em;
+  padding: 4px 10px; border-radius: 4px;
+  background: rgba(245,158,11,0.1); color: var(--amber);
+  border: 1px solid rgba(245,158,11,0.2);
+}
 
-        .bg-circles span:nth-child(4) {
-            width: 120px;
-            height: 120px;
-            top: 85%;
-            left: 70%;
-            animation-duration: 22s;
-        }
+/* ─── EXPERIENCE ─── */
+.experience-list { display: grid; gap: 0; }
+.exp-item {
+  display: grid; grid-template-columns: 200px 1fr;
+  gap: 0; position: relative;
+}
+.exp-item::before {
+  content: '';
+  position: absolute; left: 199px; top: 0; bottom: 0;
+  width: 1px; background: var(--navy-border);
+}
+.exp-time {
+  padding: 32px 32px 32px 0;
+  text-align: right;
+}
+.exp-time span {
+  font-family: var(--font-mono); font-size: 12px;
+  color: var(--slate-mid); letter-spacing: 0.06em;
+}
+.exp-dot {
+  position: absolute; left: 192px; top: 40px;
+  width: 15px; height: 15px; border-radius: 50%;
+  background: var(--navy); border: 2px solid var(--navy-border);
+  transition: border-color 0.25s;
+}
+.exp-item:hover .exp-dot { border-color: var(--amber); background: rgba(245,158,11,0.2); }
+.exp-body {
+  padding: 32px 0 32px 40px;
+  border-bottom: 1px solid var(--navy-border);
+}
+.exp-item:last-child .exp-body { border-bottom: none; }
+.exp-title { font-size: 17px; font-weight: 600; color: var(--white); margin-bottom: 4px; }
+.exp-company { font-size: 14px; color: var(--amber); font-weight: 500; margin-bottom: 12px; }
+.exp-desc { font-size: 14px; color: var(--slate); line-height: 1.75; }
+.exp-badge {
+  display: inline-block; margin-top: 12px;
+  font-size: 11px; font-weight: 600; padding: 3px 10px; border-radius: 40px;
+  background: rgba(34,197,94,0.1); color: #86efac;
+  border: 1px solid rgba(34,197,94,0.2);
+}
 
-        @keyframes float {
-            0% {
-                transform: translateY(0) rotate(0);
-            }
+/* ─── CONTACT ─── */
+.contact-wrap {
+  background: var(--navy-card); border: 1px solid var(--navy-border);
+  border-radius: 16px; padding: 64px;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;
+}
+.contact-left p { font-size: 16px; color: var(--slate); max-width: 380px; line-height: 1.8; }
+.contact-links { display: flex; flex-direction: column; gap: 14px; }
+.contact-link {
+  display: flex; align-items: center; gap: 16px;
+  padding: 16px 20px;
+  background: var(--navy); border: 1px solid var(--navy-border);
+  border-radius: 10px; transition: all 0.2s;
+}
+.contact-link:hover { border-color: var(--amber); transform: translateX(4px); }
+.contact-link:hover .contact-link-icon { background: rgba(245,158,11,0.15); color: var(--amber); }
+.contact-link-icon {
+  width: 40px; height: 40px; border-radius: 8px;
+  background: rgba(255,255,255,0.05);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px; color: var(--white-dim);
+  transition: all 0.2s; flex-shrink: 0;
+}
+.contact-link-text { flex: 1; }
+.contact-link-text strong { display: block; font-size: 14px; color: var(--white); }
+.contact-link-text span { font-size: 13px; color: var(--slate); }
+.contact-link-arrow { color: var(--slate); font-size: 16px; }
 
-            50% {
-                transform: translateY(-50px) rotate(180deg);
-            }
+/* ─── FOOTER ─── */
+footer {
+  border-top: 1px solid var(--navy-border);
+  padding: 28px 60px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.footer-logo { font-family: var(--font-mono); font-size: 13px; color: var(--amber); }
+.footer-copy { font-size: 13px; color: var(--slate-mid); }
 
-            100% {
-                transform: translateY(0) rotate(360deg);
-            }
-        }
+/* ─── SCROLL REVEAL ─── */
+.reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
 
-        /* Header */
-        header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            background: rgba(255, 255, 255, 0.9);
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
-            z-index: 1000;
-            backdrop-filter: blur(6px);
-        }
-
-        header .container {
-            max-width: 1200px;
-            margin: auto;
-            padding: 15px 30px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        header h1 {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: #2563eb;
-        }
-
-        nav a {
-            margin-left: 20px;
-            font-weight: 600;
-            transition: 0.3s;
-        }
-
-        nav a:hover {
-            color: #9333ea;
-        }
-
-        /* Hero */
-        .hero {
-            padding: 140px 20px 100px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            max-width: 1200px;
-            margin: auto;
-            color: #fff;
-        }
-
-        .hero-text {
-            flex: 1;
-            min-width: 280px;
-        }
-
-        .hero-text h2 {
-            font-size: 3rem;
-            font-weight: 700;
-            margin-bottom: 15px;
-        }
-
-        .hero-text p {
-            font-size: 1.2rem;
-            margin-bottom: 25px;
-            max-width: 600px;
-        }
-
-        .hero-text .btn {
-            display: inline-block;
-            padding: 12px 24px;
-            margin-right: 10px;
-            border-radius: 8px;
-            font-weight: 600;
-            transition: 0.3s;
-            cursor: pointer;
-        }
-
-        .btn-primary {
-            background: #2563eb;
-            color: #fff;
-        }
-
-        .btn-primary:hover {
-            background: #1e3a8a;
-        }
-
-        .btn-outline {
-            border: 2px solid #fff;
-            color: #fff;
-        }
-
-        .btn-outline:hover {
-            background: #fff;
-            color: #2563eb;
-        }
-
-        .hero img {
-            flex: 0 0 35%;
-            max-width: 320px;
-            /* smaller max size */
-            width: 100%;
-            /* responsive scaling */
-            height: auto;
-            /* keep aspect ratio */
-            border-radius: 20px;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
-            margin-left: 30px;
-        }
-
-        @media(max-width:900px) {
-            .hero {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .hero-text {
-                flex: 1;
-                text-align: center;
-            }
-
-            .hero img {
-                max-width: 220px;
-                /* shrink image for mobile */
-                margin: 30px auto 0;
-            }
-        }
-
-        /* Sections */
-        section {
-            padding: 80px 20px;
-            max-width: 1200px;
-            margin: auto;
-        }
-
-        section h2 {
-            text-align: center;
-            font-size: 2.2rem;
-            font-weight: 700;
-            margin-bottom: 50px;
-            color: #fff;
-        }
-
-        /* About */
-        .about {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 40px;
-            align-items: center;
-            color: #fff;
-        }
-
-        .about img {
-            width: 280px;
-            height: 280px;
-            object-fit: cover;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-        }
-
-        .about-text {
-            flex: 1;
-            font-size: 1.05rem;
-        }
-
-        /* Skills */
-        .skills {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-            gap: 20px;
-        }
-
-        .skill {
-            background: rgba(255, 255, 255, 0.15);
-            padding: 20px;
-            border-radius: 12px;
-            text-align: center;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        }
-
-        .skill i {
-            font-size: 2rem;
-            color: #fff;
-            margin-bottom: 10px;
-        }
-
-        .skill p {
-            font-weight: 600;
-            color: #fff;
-        }
-
-        /* Projects */
-        .projects {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-        }
-
-        .project {
-            background: rgba(255, 255, 255, 0.15);
-            border-radius: 12px;
-            padding: 20px;
-            transition: 0.3s;
-        }
-
-        .project:hover {
-            transform: translateY(-5px);
-        }
-
-        .project h3 {
-            color: #fff;
-            margin-bottom: 10px;
-        }
-
-        .project p {
-            color: #e2e2e2;
-        }
-
-        /* Experience */
-        .experience {
-            display: grid;
-            gap: 25px;
-        }
-
-        .job {
-            background: rgba(255, 255, 255, 0.15);
-            padding: 20px;
-            border-left: 5px solid #fff;
-            border-radius: 8px;
-        }
-
-        .job h3 {
-            margin-bottom: 5px;
-            color: #fff;
-        }
-
-        .job em {
-            color: #ddd;
-            font-size: 0.9rem;
-        }
-
-        .job p {
-            margin-top: 8px;
-            color: #e2e2e2;
-        }
-
-        /* Contact */
-        .contact {
-            text-align: center;
-            color: #fff;
-        }
-
-        .contact a {
-            display: inline-block;
-            margin: 10px;
-            padding: 12px 25px;
-            border-radius: 8px;
-            font-weight: 600;
-            background: #2563eb;
-            color: #fff;
-            transition: 0.3s;
-        }
-
-        .contact a:hover {
-            background: #9333ea;
-        }
-
-        footer {
-            background: #2563eb;
-            color: #fff;
-            text-align: center;
-            padding: 20px;
-            margin-top: 50px;
-        }
-
-        @media(max-width:900px) {
-            .hero {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .hero img {
-                margin-top: 30px;
-            }
-
-            .about {
-                flex-direction: column;
-            }
-        }
-    </style>
+/* ─── RESPONSIVE ─── */
+@media (max-width: 900px) {
+  nav { padding: 0 24px; }
+  .nav-links { display: none; }
+  .hero { padding: 100px 24px 60px; }
+  .hero-inner { grid-template-columns: 1fr; }
+  .hero-photo-wrap { max-width: 320px; margin: auto; }
+  .section { padding: 70px 24px; }
+  .stats-inner { padding: 28px 24px; grid-template-columns: repeat(2,1fr); }
+  .about-grid { grid-template-columns: 1fr; gap: 40px; }
+  .exp-item { grid-template-columns: 120px 1fr; }
+  .exp-item::before { left: 119px; }
+  .exp-dot { left: 112px; }
+  .exp-body { padding-left: 28px; }
+  .contact-wrap { grid-template-columns: 1fr; padding: 36px; gap: 36px; }
+  footer { flex-direction: column; gap: 10px; text-align: center; padding: 24px; }
+}
+</style>
 </head>
+<body>
 
-<body> <!-- Floating Background Circles -->
-    <div class="bg-circles"> <span></span><span></span><span></span><span></span> </div> <!-- Header -->
-    <header>
-        <div class="container">
-            <h1>Nisarg Patel</h1>
-            <nav> <a href="#home">Home</a> <a href="#about">About</a> <a href="#skills">Skills</a> <a
-                    href="#projects">Projects</a> <a href="#experience">Experience</a> <a href="#contact">Contact</a>
-            </nav>
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">np.dev</div>
+  <div class="nav-links">
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#experience">Experience</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-grid-bg"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-glow-2"></div>
+  <div class="hero-inner">
+    <div class="hero-text">
+      <div class="hero-tag">Flutter Developer</div>
+      <h1>Nisarg<br><em>Patel</em></h1>
+      <p class="hero-sub">
+        Building high-performance, cross-platform mobile applications with Flutter &amp; Dart.
+        2.9 years of experience shipping apps across fitness, education, and business domains.
+      </p>
+      <div class="hero-actions">
+        <a href="#projects" class="btn btn-amber">View Projects</a>
+        <a href="Nisarg_Patel_Flutter_Developer_CV.pdf" class="btn btn-ghost" download>Download CV</a>
+      </div>
+    </div>
+    <div class="hero-photo-wrap">
+      <div class="hero-deco-line"></div>
+      <div class="hero-photo-frame">
+        <img src="IMG_0155.jpeg" alt="Nisarg Patel"/>
+        <div class="hero-photo-overlay"></div>
+        <div class="hero-photo-badge">
+          <div class="badge-dot"></div>
+          <div class="badge-text">
+            Available for opportunities
+            <span>Open to full-time &amp; freelance</span>
+          </div>
         </div>
-    </header> <!-- Hero -->
-    <section class="hero" id="home">
-        <div class="hero-text">
-            <h2>Hello, I'm Nisarg 👋</h2>
-            <p>I’m a Flutter Developer with 2 years of experience building high-performance, cross-platform mobile
-                applications. Skilled in Flutter, Dart, Firebase, REST APIs, and modern state management (MobX, GetX,
-                and BLoC). I’ve successfully delivered 5+ apps across fitness, education, and business domains.</p> <a
-                href="#projects" class="btn btn-primary">See My Work</a> <a href="Nisarg_Patel_Flutter_Developer_CV.pdf"
-                class="btn btn-outline">Download Resume</a>
-        </div> <img src="IMG_0155.jpeg" alt="Nisarg Patel">
-    </section> <!-- About -->
-    <section id="about">
-        <h2>About Me</h2>
-        <div class="about"> <img src="flogot.png" width=100px height=100px alt="Flutter Logo">
-            <div class="about-text">
-                <p>I specialize in building cross-platform apps that deliver native-like performance. Over the past 2
-                    years, I’ve delivered 5+ projects using Firebase, REST APIs, and custom UI/UX designs. I love
-                    experimenting with modern state management and ensuring scalability in every project.</p>
-            </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS BAR -->
+<div class="stats-bar">
+  <div class="stats-inner">
+    <div class="stat reveal">
+      <div class="stat-num">2.9</div>
+      <div class="stat-label">Years Experience</div>
+    </div>
+    <div class="stat reveal">
+      <div class="stat-num">6+</div>
+      <div class="stat-label">Apps Delivered</div>
+    </div>
+    <div class="stat reveal">
+      <div class="stat-num">3</div>
+      <div class="stat-label">Companies</div>
+    </div>
+    <div class="stat reveal">
+      <div class="stat-num">3</div>
+      <div class="stat-label">State Mgmt Libs</div>
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section class="section" id="about">
+  <div class="section-header reveal">
+    <div class="section-tag">About Me</div>
+    <h2 class="section-title">Crafting apps that <em>feel</em> native</h2>
+  </div>
+  <div class="about-grid">
+    <div class="about-text reveal">
+      <p>
+        I'm a Flutter Developer with a passion for building <strong>beautiful, responsive, and scalable</strong>
+        cross-platform applications. My focus is always on delivering smooth user experiences that feel
+        truly native on both Android and iOS.
+      </p>
+      <p>
+        Over the past two years, I've shipped apps across multiple domains — fitness, service platforms,
+        education, and e-commerce — working with <strong>Firebase, REST APIs, and custom UI/UX</strong> to
+        bring designs to life. I care deeply about code quality, performance, and maintainability.
+      </p>
+      <p>
+        Currently at <strong>Glatro Commerce Pvt. Ltd.</strong>, building sleek e-commerce experiences
+        with Flutter and modern state management patterns.
+      </p>
+    </div>
+    <div class="about-details reveal">
+      <div class="detail-row">
+        <div class="detail-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 1 0 0 14A7 7 0 0 0 12 2zM3 21a9 9 0 0 1 18 0"/></svg>
         </div>
-    </section> <!-- Skills -->
-    <section id="skills">
-        <h2>Skills</h2>
-        <div class="skills">
-            <div class="skill"><img src="flogot.png" width=30px height=30px></img>
-                <p>Flutter</p>
-            </div>
-            <div class="skill"><img src="dlogo.png" width=30px height=30px></img>
-                <p>Dart</p>
-            </div>
-            <div class="skill"><i class="fa-brands fa-android"></i>
-                <p>Android</p>
-            </div>
-            <div class="skill"><i class="fa-brands fa-apple"></i>
-                <p>iOS</p>
-            </div>
-            <div class="skill"><i class="fa-solid fa-cloud"></i>
-                <p>Firebase</p>
-            </div>
-            <div class="skill"><i class="fa-solid fa-database"></i>
-                <p>Sqflite</p>
-            </div>
-            <div class="skill"><i class="fa-solid fa-layer-group"></i>
-                <p>MobX / GetX / BLoC</p>
-            </div>
-            <div class="skill"><i class="fa-solid fa-plug"></i>
-                <p>REST APIs</p>
-            </div>
-            <div class="skill"><i class="fa-brands fa-github"></i>
-                <p>Git/GitHub</p>
-            </div>
-            <div class="skill"><i class="fa fa-gear"></i>
-                <p>CI/CD</p>
-            </div>
+        <div class="detail-info">
+          <div class="detail-label">Name</div>
+          <div class="detail-val">Nisarg Patel</div>
         </div>
-    </section> <!-- Projects -->
-    <section id="projects">
-        <h2>Projects</h2>
-        <div class="projects">
-            <div class="project">
-                <h3>Getup ExerciseNow</h3>
-                <p>Fitness app with workouts, diet plans, and tracking.</p>
-            </div>
-            <div class="project">
-                <h3>Wave Tech Service</h3>
-                <p>Service provider app with Firebase & payment integration.</p>
-            </div>
-            <div class="project">
-                <h3>Wave Partner App</h3>
-                <p>Service provider Partner app with Firebase & payment integration and accept & reject dialog</p>
-            </div>
-            <div class="project">
-                <h3>Just Connect</h3>
-                <p>Educational mobile app designed for students.</p>
-            </div>
+      </div>
+      <div class="detail-row">
+        <div class="detail-icon">
+          <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>
         </div>
-    </section> <!-- Experience -->
-    <section id="experience">
-        <h2>Experience</h2>
-        <div class="experience">
-            <div class="job">
-                <h3>Flutter Developer - Hyperlink Infosystem</h3> <em>2023 - 2024</em>
-                <p>Built apps with Firebase & REST APIs for international clients.</p>
-            </div>
-            <div class="job">
-                <h3>Flutter Developer - Wave Tech Service</h3> <em>2024 - 2025</em>
-                <p>Developed scalable mobile apps for businesses with strong performance and smooth UI/UX.</p>
-            </div>
-            <div class="job">
-                <h3>Flutter Developer - Glatro Commerce Pvt. Ltd.</h3> <em>2025 - Present</em>
-                <p>Builting Ecommerce apps with Firebase, REST APIs and Beautifull and Smooth UI.</p>
-            </div>
+        <div class="detail-info">
+          <div class="detail-label">Current Role</div>
+          <div class="detail-val">Flutter Developer @ Glatro Commerce</div>
         </div>
-    </section>
-    <!-- Contact -->
-    <section id="contact" class="contact">
-        <h2>Contact Me</h2>
-        <p>Interested in working together? Let’s connect!</p> <a href="mailto:np17531@gmail.com"><i
-                class="fa-solid fa-envelope"></i> Email</a> <a href="https://github.com/nisargp943" target="_blank"><i
-                class="fa-brands fa-github"></i> GitHub</a> <a href="https://www.linkedin.com/in/nisarg-patel-7b8963227"
-            target="_blank"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
-    </section> <!-- Footer -->
-    <footer>
-        <p>&copy; 2025 Nisarg Patel. All Rights Reserved.</p>
-    </footer>
+      </div>
+      <div class="detail-row">
+        <div class="detail-icon">
+          <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        </div>
+        <div class="detail-info">
+          <div class="detail-label">Location</div>
+          <div class="detail-val">Ahmedabad, Gujarat, India</div>
+        </div>
+      </div>
+      <div class="detail-row">
+        <div class="detail-icon">
+          <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div class="detail-info">
+          <div class="detail-label">Email</div>
+          <div class="detail-val">np17531@gmail.com</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider"/>
+
+<!-- SKILLS -->
+<section class="section" id="skills">
+  <div class="section-header reveal">
+    <div class="section-tag">Technical Skills</div>
+    <h2 class="section-title">Tools of the <em>trade</em></h2>
+  </div>
+  <div class="skills-grid">
+    <div class="skill-card reveal">
+      <div class="skill-icon"><img src="flogot.png" alt="Flutter"/></div>
+      <div class="skill-name">Flutter</div>
+      <div class="skill-level"><div class="skill-level-fill" style="width:95%"></div></div>
+    </div>
+    <div class="skill-card reveal">
+      <div class="skill-icon"><img src="dlogo.png" alt="Dart"/></div>
+      <div class="skill-name">Dart</div>
+      <div class="skill-level"><div class="skill-level-fill" style="width:90%"></div></div>
+    </div>
+    <div class="skill-card reveal">
+      <div class="skill-icon">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/>
+        </svg>
+      </div>
+      <div class="skill-name">Firebase</div>
+      <div class="skill-level"><div class="skill-level-fill" style="width:85%"></div></div>
+    </div>
+    <div class="skill-card reveal">
+      <div class="skill-icon">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/>
+        </svg>
+      </div>
+      <div class="skill-name">Android</div>
+      <div class="skill-level"><div class="skill-level-fill" style="width:80%"></div></div>
+    </div>
+    <div class="skill-card reveal">
+      <div class="skill-icon">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M12 2a10 10 0 1 0 0 20A10 10 0 0 0 12 2z"/><path d="M12 8v8M8 12h8"/>
+        </svg>
+      </div>
+      <div class="skill-name">iOS</div>
+      <div class="skill-level"><div class="skill-level-fill" style="width:78%"></div></div>
+    </div>
+    <div class="skill-card reveal">
+      <div class="skill-icon">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <ellipse cx="12" cy="12" rx="3" ry="3"/><path d="M12 2v3M12 19v3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M2 12h3M19 12h3M4.22 19.78l2.12-2.12M17.66 6.34l2.12-2.12"/>
+        </svg>
+      </div>
+      <div class="skill-name">REST APIs</div>
+      <div class="skill-level"><div class="skill-level-fill" style="width:88%"></div></div>
+    </div>
+    <div class="skill-card reveal">
+      <div class="skill-icon">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+        </svg>
+      </div>
+      <div class="skill-name">MobX / GetX / BLoC</div>
+      <div class="skill-level"><div class="skill-level-fill" style="width:85%"></div></div>
+    </div>
+    <div class="skill-card reveal">
+      <div class="skill-icon">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M3 3h18v18H3zM12 8v8M8 12h8"/>
+        </svg>
+      </div>
+      <div class="skill-name">Sqflite</div>
+      <div class="skill-level"><div class="skill-level-fill" style="width:75%"></div></div>
+    </div>
+    <div class="skill-card reveal">
+      <div class="skill-icon">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <circle cx="12" cy="12" r="4"/><path d="M16.95 7.05a7 7 0 1 0 0 9.9"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2"/>
+        </svg>
+      </div>
+      <div class="skill-name">Git / GitHub</div>
+      <div class="skill-level"><div class="skill-level-fill" style="width:82%"></div></div>
+    </div>
+    <div class="skill-card reveal">
+      <div class="skill-icon">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+        </svg>
+      </div>
+      <div class="skill-name">CI/CD</div>
+      <div class="skill-level"><div class="skill-level-fill" style="width:70%"></div></div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider"/>
+
+<!-- PROJECTS -->
+<section class="section" id="projects">
+  <div class="section-header reveal">
+    <div class="section-tag">Portfolio</div>
+    <h2 class="section-title">Selected <em>Projects</em></h2>
+  </div>
+  <div class="projects-grid">
+    <div class="project-card reveal">
+      <div class="project-num">01</div>
+      <div class="project-title">Getup ExerciseNow</div>
+      <p class="project-desc">A feature-rich fitness application offering personalised workouts, nutrition diet plans, and detailed progress tracking. Designed with smooth animations and an intuitive user interface.</p>
+      <div class="project-tags">
+        <span class="tag">Flutter</span>
+        <span class="tag">Firebase</span>
+        <span class="tag">REST API</span>
+        <span class="tag">GetX</span>
+      </div>
+    </div>
+    <div class="project-card reveal">
+      <div class="project-num">02</div>
+      <div class="project-title">Wave Tech Service</div>
+      <p class="project-desc">End-to-end service provider platform with Firebase real-time database, seamless payment gateway integration, booking flows, and service management dashboards.</p>
+      <div class="project-tags">
+        <span class="tag">Flutter</span>
+        <span class="tag">Firebase</span>
+        <span class="tag">Payment Gateway</span>
+        <span class="tag">BLoC</span>
+      </div>
+    </div>
+    <div class="project-card reveal">
+      <div class="project-num">03</div>
+      <div class="project-title">Wave Partner App</div>
+      <p class="project-desc">Companion partner application for service providers — featuring real-time job notifications, accept/reject workflows, earnings tracking, and partner profile management.</p>
+      <div class="project-tags">
+        <span class="tag">Flutter</span>
+        <span class="tag">Firebase</span>
+        <span class="tag">Real-time</span>
+        <span class="tag">MobX</span>
+      </div>
+    </div>
+    <div class="project-card reveal">
+      <div class="project-num">04</div>
+      <div class="project-title">Just Connect</div>
+      <p class="project-desc">Educational mobile platform built for students — enabling course discovery, progress tracking, peer connectivity, and resource sharing in a clean, engaging interface.</p>
+      <div class="project-tags">
+        <span class="tag">Flutter</span>
+        <span class="tag">Firebase</span>
+        <span class="tag">Education</span>
+        <span class="tag">GetX</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider"/>
+
+<!-- EXPERIENCE -->
+<section class="section" id="experience">
+  <div class="section-header reveal">
+    <div class="section-tag">Career</div>
+    <h2 class="section-title">Work <em>Experience</em></h2>
+  </div>
+  <div class="experience-list">
+
+    <div class="exp-item reveal">
+      <div class="exp-time"><span>2023 — 2024</span></div>
+      <div class="exp-dot"></div>
+      <div class="exp-body">
+        <div class="exp-title">Flutter Developer</div>
+        <div class="exp-company">Hyperlink Infosystem</div>
+        <p class="exp-desc">Developed and delivered multiple cross-platform mobile apps for international clients. Worked with Firebase, REST APIs, and custom UI components to ensure high-quality, performant builds.</p>
+      </div>
+    </div>
+
+    <div class="exp-item reveal">
+      <div class="exp-time"><span>2024 — 2025</span></div>
+      <div class="exp-dot"></div>
+      <div class="exp-body">
+        <div class="exp-title">Flutter Developer</div>
+        <div class="exp-company">Wave Tech Service</div>
+        <p class="exp-desc">Led development of the Wave Tech Service and Wave Partner apps. Architected scalable state management solutions and delivered polished UI/UX that improved user engagement significantly.</p>
+      </div>
+    </div>
+
+    <div class="exp-item reveal">
+      <div class="exp-time"><span>2025 — Present</span></div>
+      <div class="exp-dot"></div>
+      <div class="exp-body">
+        <div class="exp-title">Flutter Developer</div>
+        <div class="exp-company">Glatro Commerce Pvt. Ltd.</div>
+        <p class="exp-desc">Building feature-rich e-commerce applications with Flutter, Firebase, and REST APIs. Focused on delivering pixel-perfect UI, optimised performance, and scalable architecture.</p>
+        <span class="exp-badge">Currently Here</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<hr class="divider"/>
+
+<!-- CONTACT -->
+<section class="section" id="contact">
+  <div class="section-header reveal">
+    <div class="section-tag">Get In Touch</div>
+    <h2 class="section-title">Let's build something <em>great</em></h2>
+  </div>
+  <div class="contact-wrap reveal">
+    <div class="contact-left">
+      <p>Whether you have a project in mind, a full-time opportunity, or just want to connect — I'm always happy to talk. Drop me a message through any of the channels below.</p>
+    </div>
+    <div class="contact-links">
+      <a href="mailto:np17531@gmail.com" class="contact-link">
+        <div class="contact-link-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+            <polyline points="22,6 12,13 2,6"/>
+          </svg>
+        </div>
+        <div class="contact-link-text">
+          <strong>Email</strong>
+          <span>np17531@gmail.com</span>
+        </div>
+        <span class="contact-link-arrow">→</span>
+      </a>
+      <a href="https://github.com/nisargp943" target="_blank" rel="noopener" class="contact-link">
+        <div class="contact-link-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+          </svg>
+        </div>
+        <div class="contact-link-text">
+          <strong>GitHub</strong>
+          <span>github.com/nisargp943</span>
+        </div>
+        <span class="contact-link-arrow">→</span>
+      </a>
+      <a href="https://www.linkedin.com/in/nisarg-patel-7b8963227" target="_blank" rel="noopener" class="contact-link">
+        <div class="contact-link-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/>
+            <circle cx="4" cy="4" r="2"/>
+          </svg>
+        </div>
+        <div class="contact-link-text">
+          <strong>LinkedIn</strong>
+          <span>nisarg-patel-7b8963227</span>
+        </div>
+        <span class="contact-link-arrow">→</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">np.dev</div>
+  <div class="footer-copy">&copy; 2025 Nisarg Patel. All Rights Reserved.</div>
+</footer>
+
+<script>
+// Intersection Observer for scroll reveal
+const revealEls = document.querySelectorAll('.reveal');
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      // Animate skill bars when visible
+      const fill = entry.target.querySelector('.skill-level-fill');
+      if (fill) entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.12 });
+revealEls.forEach(el => io.observe(el));
+
+// Stagger reveals within grids
+document.querySelectorAll('.skills-grid .skill-card, .projects-grid .project-card').forEach((el, i) => {
+  el.style.transitionDelay = (i * 60) + 'ms';
+});
+</script>
 </body>
+</html>
