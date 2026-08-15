@@ -3,10 +3,57 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Nisarg Patel — Flutter Developer</title>
+<title>Nisarg Patel | Flutter Developer — Android &amp; iOS App Development</title>
+<meta name="description" content="Nisarg Patel is a Flutter Developer with 3 years of experience building production-ready Android and iOS applications. Specializing in Firebase, REST API integration, payment gateways and real-time features. Available for full-time and freelance opportunities, remote and international."/>
+<meta name="keywords" content="Flutter Developer, Flutter Developer India, Flutter Developer Ahmedabad, Freelance Flutter Developer, Flutter App Developer, Flutter Mobile App Developer, Android iOS Developer, Remote Flutter Developer, Hire Flutter Developer"/>
+<meta name="author" content="Nisarg Patel"/>
+<meta name="robots" content="index, follow"/>
+<link rel="canonical" href="https://YOUR-DOMAIN-HERE.com/"/>
+
+<!-- Open Graph -->
+<meta property="og:type" content="website"/>
+<meta property="og:title" content="Nisarg Patel | Flutter Developer — Android &amp; iOS App Development"/>
+<meta property="og:description" content="Flutter Developer with 3 years of experience building production-ready Android and iOS applications. Firebase, REST APIs, payment gateways, real-time features. Open to remote and freelance work."/>
+<meta property="og:url" content="https://YOUR-DOMAIN-HERE.com/"/>
+<meta property="og:image" content="https://YOUR-DOMAIN-HERE.com/IMG_0155.jpeg"/>
+<meta property="og:locale" content="en_IN"/>
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Nisarg Patel | Flutter Developer"/>
+<meta name="twitter:description" content="Flutter Developer building production-ready Android &amp; iOS applications. Firebase, REST APIs, payment gateways, real-time features."/>
+<meta name="twitter:image" content="https://YOUR-DOMAIN-HERE.com/IMG_0155.jpeg"/>
+
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+
+<!-- Structured data: only genuine, factual information -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Nisarg Patel",
+  "jobTitle": "Flutter Developer",
+  "url": "https://YOUR-DOMAIN-HERE.com/",
+  "email": "mailto:np17531@gmail.com",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Ahmedabad",
+    "addressRegion": "Gujarat",
+    "addressCountry": "IN"
+  },
+  "sameAs": [
+    "https://github.com/nisargp943",
+    "https://www.linkedin.com/in/nisarg-patel-7b8963227"
+  ],
+  "worksFor": {
+    "@type": "Organization",
+    "name": "Glatro Commerce Pvt. Ltd."
+  },
+  "knowsAbout": ["Flutter", "Dart", "Android Development", "iOS Development", "Firebase", "REST APIs", "Payment Gateway Integration", "Google Maps Integration"]
+}
+</script>
 <style>
 :root {
   --navy: #0b0f1a;
@@ -27,6 +74,10 @@
 }
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+}
 body {
   background: var(--navy);
   color: var(--white);
@@ -36,6 +87,19 @@ body {
   overflow-x: hidden;
 }
 a { text-decoration: none; color: inherit; }
+a:focus-visible, button:focus-visible {
+  outline: 2px solid var(--amber);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+.skip-link {
+  position: absolute; left: 12px; top: -60px;
+  background: var(--amber); color: var(--navy);
+  padding: 10px 18px; border-radius: 6px;
+  font-size: 13px; font-weight: 600;
+  z-index: 1000; transition: top 0.2s;
+}
+.skip-link:focus { top: 12px; }
 
 /* ─── NOISE OVERLAY ─── */
 body::after {
@@ -250,6 +314,13 @@ nav {
 .detail-val { font-size: 14px; color: var(--white); font-weight: 500; margin-top: 2px; }
 
 /* ─── SKILLS ─── */
+.skills-group { margin-bottom: 40px; }
+.skills-group:last-child { margin-bottom: 0; }
+.skills-group-title {
+  font-family: var(--font-mono); font-size: 12px; font-weight: 500;
+  color: var(--slate-mid); letter-spacing: 0.1em; text-transform: uppercase;
+  margin-bottom: 18px;
+}
 .skills-grid {
   display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 14px;
 }
@@ -306,6 +377,10 @@ nav {
   color: var(--amber); letter-spacing: 0.08em;
 }
 .project-title { font-family: var(--font-serif); font-size: 22px; color: var(--white); }
+.project-meta {
+  font-family: var(--font-mono); font-size: 11px; color: var(--slate-mid);
+  letter-spacing: 0.04em; text-transform: uppercase;
+}
 /* FIX: allow full description to show — no line clamping */
 .project-desc {
   font-size: 14px;
@@ -321,6 +396,34 @@ nav {
   background: rgba(245,158,11,0.1); color: var(--amber);
   border: 1px solid rgba(245,158,11,0.2);
 }
+
+/* ─── SERVICES ─── */
+.services-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px;
+}
+.service-card {
+  background: var(--navy-card); border: 1px solid var(--navy-border);
+  border-radius: 12px; padding: 28px 26px;
+  transition: all 0.25s;
+}
+.service-card:hover { border-color: rgba(245,158,11,0.3); transform: translateY(-3px); }
+.service-icon {
+  width: 42px; height: 42px; border-radius: 10px;
+  background: rgba(245,158,11,0.1);
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 18px;
+}
+.service-icon svg { width: 20px; height: 20px; stroke: var(--amber); fill: none; stroke-width: 1.6; }
+.service-title { font-size: 16px; font-weight: 600; color: var(--white); margin-bottom: 8px; }
+.service-desc { font-size: 14px; color: var(--slate); line-height: 1.7; }
+
+/* ─── AVAILABILITY BANNER ─── */
+.availability-banner {
+  max-width: 1100px; margin: 0 auto 0; padding: 18px 60px;
+  display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
+  font-size: 13px; color: var(--slate);
+}
+.availability-banner strong { color: var(--white-dim); font-weight: 500; }
 
 /* ─── EXPERIENCE ─── */
 .experience-list { display: grid; gap: 0; }
@@ -420,22 +523,27 @@ footer {
   .exp-body { padding-left: 28px; }
   .contact-wrap { grid-template-columns: 1fr; padding: 36px; gap: 36px; }
   footer { flex-direction: column; gap: 10px; text-align: center; padding: 24px; }
+  .availability-banner { padding: 14px 24px; }
 }
 </style>
 </head>
 <body>
+<a href="#main" class="skip-link">Skip to content</a>
 
 <!-- NAV -->
-<nav>
-  <div class="nav-logo">np.dev</div>
+<nav aria-label="Primary">
+  <a href="#home" class="nav-logo">np.dev</a>
   <div class="nav-links">
     <a href="#about">About</a>
     <a href="#skills">Skills</a>
     <a href="#projects">Projects</a>
+    <a href="#services">Services</a>
     <a href="#experience">Experience</a>
     <a href="#contact">Contact</a>
   </div>
 </nav>
+
+<main id="main">
 
 <!-- HERO -->
 <section class="hero" id="home">
@@ -444,27 +552,30 @@ footer {
   <div class="hero-glow-2"></div>
   <div class="hero-inner">
     <div class="hero-text">
-      <div class="hero-tag">Flutter Developer</div>
-      <h1>Nisarg<br><em>Patel</em></h1>
+      <div class="hero-tag">Flutter Developer · Ahmedabad, India</div>
+      <h1>Nisarg Patel — <em>Flutter</em><br>Developer</h1>
       <p class="hero-sub">
-        Building high-performance, cross-platform mobile applications with Flutter &amp; Dart.
-        3 years of experience shipping apps across fitness, education, and business domains.
+        I build production-ready Android &amp; iOS applications with Flutter — from REST API and Firebase
+        integration to payment gateways, real-time features and App/Play Store deployment. 3 years of
+        experience shipping apps across fitness, service, education and e-commerce platforms.
+        Available to collaborate with companies and clients globally.
       </p>
       <div class="hero-actions">
-        <a href="#projects" class="btn btn-amber">View Projects</a>
+        <a href="#contact" class="btn btn-amber">Let's Work Together</a>
+        <a href="#projects" class="btn btn-ghost">View My Work</a>
         <a href="Nisarg_Patel_Flutter_Developer_CV_3YOE.pdf" class="btn btn-ghost" download>Download CV</a>
       </div>
     </div>
     <div class="hero-photo-wrap">
       <div class="hero-deco-line"></div>
       <div class="hero-photo-frame">
-        <img src="IMG_0155.jpeg" alt="Nisarg Patel"/>
+        <img src="IMG_0155.jpeg" alt="Nisarg Patel, Flutter Developer" width="380" height="507" fetchpriority="high"/>
         <div class="hero-photo-overlay"></div>
         <div class="hero-photo-badge">
-          <div class="badge-dot"></div>
+          <div class="badge-dot" aria-hidden="true"></div>
           <div class="badge-text">
             Available for opportunities
-            <span>Open to full-time &amp; freelance</span>
+            <span>Open to full-time, freelance &amp; remote work</span>
           </div>
         </div>
       </div>
@@ -503,18 +614,27 @@ footer {
   <div class="about-grid">
     <div class="about-text reveal">
       <p>
-        I'm a Flutter Developer with a passion for building <strong>beautiful, responsive, and scalable</strong>
-        cross-platform applications. My focus is always on delivering smooth user experiences that feel
-        truly native on both Android and iOS.
+        I'm a Flutter Developer with 3 years of experience building <strong>scalable, production-ready
+        applications</strong> for Android and iOS from a single codebase. My work spans the full app
+        lifecycle — from consuming REST APIs and integrating Firebase, to state management, performance
+        tuning, and shipping builds to the Play Store and App Store.
       </p>
       <p>
-        Over the past two years, I've shipped apps across multiple domains — fitness, service platforms,
-        education, and e-commerce — working with <strong>Firebase, REST APIs, and custom UI/UX</strong> to
-        bring designs to life. I care deeply about code quality, performance, and maintainability.
+        I've delivered apps across fitness, home-service marketplaces, education, and e-commerce —
+        working on real product requirements like <strong>authentication, payment gateway integration,
+        Google Maps &amp; location tracking, real-time order updates, and push notifications</strong>.
+        I care about clean architecture, predictable state management (MobX, GetX, BLoC), and code that's
+        easy for a team to maintain long after launch.
       </p>
       <p>
-        Currently at <strong>Glatro Commerce Pvt. Ltd.</strong>, building sleek e-commerce experiences
-        with Flutter and modern state management patterns.
+        Currently at <strong>Glatro Commerce Pvt. Ltd.</strong>, I build the customer, delivery-partner
+        and vendor apps that power an e-commerce platform — three connected Flutter apps sharing a common
+        backend and design system.
+      </p>
+      <p>
+        I'm comfortable working directly with founders and product teams, picking up an existing codebase,
+        or building from a blank screen — and I'm open to full-time roles, contract work, and freelance
+        projects with companies anywhere in the world.
       </p>
     </div>
     <div class="about-details reveal">
@@ -554,6 +674,15 @@ footer {
           <div class="detail-val">np17531@gmail.com</div>
         </div>
       </div>
+      <div class="detail-row">
+        <div class="detail-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20 15 15 0 0 1 0-20z"/></svg>
+        </div>
+        <div class="detail-info">
+          <div class="detail-label">Availability</div>
+          <div class="detail-val">Remote &amp; on-site — full-time, contract, freelance</div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -566,125 +695,139 @@ footer {
     <div class="section-tag">Technical Skills</div>
     <h2 class="section-title">Tools of the <em>trade</em></h2>
   </div>
-  <!-- FIX: all skill cards are now correctly inside .skills-grid -->
-  <div class="skills-grid">
-    <div class="skill-card reveal">
-      <div class="skill-icon"><img src="flogot.png" alt="Flutter"/></div>
-      <div class="skill-name">Flutter</div>
-      <div class="skill-level"><div class="skill-level-fill" style="width:95%"></div></div>
-    </div>
-    <div class="skill-card reveal">
-      <div class="skill-icon"><img src="dlogo.png" alt="Dart"/></div>
-      <div class="skill-name">Dart</div>
-      <div class="skill-level"><div class="skill-level-fill" style="width:90%"></div></div>
-    </div>
-    <div class="skill-card reveal">
-      <div class="skill-icon">
-        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/>
-        </svg>
+  <div class="skills-group">
+    <div class="skills-group-title">Mobile Development</div>
+    <div class="skills-grid">
+      <div class="skill-card reveal">
+        <div class="skill-icon"><img src="flogot.png" alt="Flutter logo" loading="lazy" width="32" height="32"/></div>
+        <div class="skill-name">Flutter</div>
+        <div class="skill-level"><div class="skill-level-fill" style="width:95%"></div></div>
       </div>
-      <div class="skill-name">Firebase</div>
-      <div class="skill-level"><div class="skill-level-fill" style="width:85%"></div></div>
-    </div>
-    <div class="skill-card reveal">
-      <div class="skill-icon">
-        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-          <rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/>
-        </svg>
+      <div class="skill-card reveal">
+        <div class="skill-icon"><img src="dlogo.png" alt="Dart logo" loading="lazy" width="32" height="32"/></div>
+        <div class="skill-name">Dart</div>
+        <div class="skill-level"><div class="skill-level-fill" style="width:90%"></div></div>
       </div>
-      <div class="skill-name">Android</div>
-      <div class="skill-level"><div class="skill-level-fill" style="width:80%"></div></div>
-    </div>
-    <div class="skill-card reveal">
-      <div class="skill-icon">
-        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-          <path d="M12 2a10 10 0 1 0 0 20A10 10 0 0 0 12 2z"/><path d="M12 8v8M8 12h8"/>
-        </svg>
+      <div class="skill-card reveal">
+        <div class="skill-icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+            <rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/>
+          </svg>
+        </div>
+        <div class="skill-name">Android</div>
+        <div class="skill-level"><div class="skill-level-fill" style="width:80%"></div></div>
       </div>
-      <div class="skill-name">iOS</div>
-      <div class="skill-level"><div class="skill-level-fill" style="width:78%"></div></div>
-    </div>
-    <div class="skill-card reveal">
-      <div class="skill-icon">
-        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-          <ellipse cx="12" cy="12" rx="3" ry="3"/><path d="M12 2v3M12 19v3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M2 12h3M19 12h3M4.22 19.78l2.12-2.12M17.66 6.34l2.12-2.12"/>
-        </svg>
+      <div class="skill-card reveal">
+        <div class="skill-icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+            <path d="M12 2a10 10 0 1 0 0 20A10 10 0 0 0 12 2z"/><path d="M12 8v8M8 12h8"/>
+          </svg>
+        </div>
+        <div class="skill-name">iOS</div>
+        <div class="skill-level"><div class="skill-level-fill" style="width:78%"></div></div>
       </div>
-      <div class="skill-name">REST APIs</div>
-      <div class="skill-level"><div class="skill-level-fill" style="width:88%"></div></div>
-    </div>
-    <div class="skill-card reveal">
-      <div class="skill-icon">
-        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-          <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
-        </svg>
+      <div class="skill-card reveal">
+        <div class="skill-icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+          </svg>
+        </div>
+        <div class="skill-name">MobX / GetX / BLoC</div>
+        <div class="skill-level"><div class="skill-level-fill" style="width:85%"></div></div>
       </div>
-      <div class="skill-name">MobX / GetX / BLoC</div>
-      <div class="skill-level"><div class="skill-level-fill" style="width:85%"></div></div>
-    </div>
-    <div class="skill-card reveal">
-      <div class="skill-icon">
-        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-          <path d="M3 3h18v18H3zM12 8v8M8 12h8"/>
-        </svg>
+      <div class="skill-card reveal">
+        <div class="skill-icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+            <path d="M3 3h18v18H3zM12 8v8M8 12h8"/>
+          </svg>
+        </div>
+        <div class="skill-name">Sqflite</div>
+        <div class="skill-level"><div class="skill-level-fill" style="width:75%"></div></div>
       </div>
-      <div class="skill-name">Sqflite</div>
-      <div class="skill-level"><div class="skill-level-fill" style="width:75%"></div></div>
     </div>
-    <div class="skill-card reveal">
-      <div class="skill-icon">
-        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-          <circle cx="12" cy="12" r="4"/><path d="M16.95 7.05a7 7 0 1 0 0 9.9"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2"/>
-        </svg>
+  </div>
+
+  <div class="skills-group">
+    <div class="skills-group-title">APIs &amp; Backend Services</div>
+    <div class="skills-grid">
+      <div class="skill-card reveal">
+        <div class="skill-icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/>
+          </svg>
+        </div>
+        <div class="skill-name">Firebase</div>
+        <div class="skill-level"><div class="skill-level-fill" style="width:85%"></div></div>
       </div>
-      <div class="skill-name">Git / GitHub</div>
-      <div class="skill-level"><div class="skill-level-fill" style="width:82%"></div></div>
+      <div class="skill-card reveal">
+        <div class="skill-icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+            <ellipse cx="12" cy="12" rx="3" ry="3"/><path d="M12 2v3M12 19v3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M2 12h3M19 12h3M4.22 19.78l2.12-2.12M17.66 6.34l2.12-2.12"/>
+          </svg>
+        </div>
+        <div class="skill-name">REST APIs</div>
+        <div class="skill-level"><div class="skill-level-fill" style="width:88%"></div></div>
+      </div>
     </div>
-    <div class="skill-card reveal">
-      <div class="skill-icon">
-        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-        </svg>
+  </div>
+
+  <div class="skills-group">
+    <div class="skills-group-title">Deployment &amp; Tooling</div>
+    <div class="skills-grid">
+      <div class="skill-card reveal">
+        <div class="skill-icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+            <circle cx="12" cy="12" r="4"/><path d="M16.95 7.05a7 7 0 1 0 0 9.9"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2"/>
+          </svg>
+        </div>
+        <div class="skill-name">Git / GitHub</div>
+        <div class="skill-level"><div class="skill-level-fill" style="width:82%"></div></div>
       </div>
-      <div class="skill-name">CI/CD</div>
-      <div class="skill-level"><div class="skill-level-fill" style="width:70%"></div></div>
-    </div>
-    <div class="skill-card reveal">
-      <div class="skill-icon">
-        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-          <rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/><circle cx="17" cy="17" r="4"/><path d="M17 15.5v1.5l1 1"/>
-        </svg>
+      <div class="skill-card reveal">
+        <div class="skill-icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          </svg>
+        </div>
+        <div class="skill-name">CI/CD</div>
+        <div class="skill-level"><div class="skill-level-fill" style="width:70%"></div></div>
       </div>
-      <div class="skill-name">Play Store Deployment</div>
-      <div class="skill-level"><div class="skill-level-fill" style="width:90%"></div></div>
-    </div>
-    <div class="skill-card reveal">
-      <div class="skill-icon">
-        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-          <path d="M12 2a10 10 0 1 0 0 20A10 10 0 0 0 12 2z"/><path d="M8 12l2.5 2.5L16 9"/>
-        </svg>
+      <div class="skill-card reveal">
+        <div class="skill-icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+            <rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/><circle cx="17" cy="17" r="4"/><path d="M17 15.5v1.5l1 1"/>
+          </svg>
+        </div>
+        <div class="skill-name">Play Store Deployment</div>
+        <div class="skill-level"><div class="skill-level-fill" style="width:90%"></div></div>
       </div>
-      <div class="skill-name">App Store Deployment</div>
-      <div class="skill-level"><div class="skill-level-fill" style="width:82%"></div></div>
-    </div>
-    <div class="skill-card reveal">
-      <div class="skill-icon">
-        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-          <path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/>
-        </svg>
+      <div class="skill-card reveal">
+        <div class="skill-icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+            <path d="M12 2a10 10 0 1 0 0 20A10 10 0 0 0 12 2z"/><path d="M8 12l2.5 2.5L16 9"/>
+          </svg>
+        </div>
+        <div class="skill-name">App Store Deployment</div>
+        <div class="skill-level"><div class="skill-level-fill" style="width:82%"></div></div>
       </div>
-      <div class="skill-name">App Signing &amp; Keystore</div>
-      <div class="skill-level"><div class="skill-level-fill" style="width:88%"></div></div>
-    </div>
-    <div class="skill-card reveal">
-      <div class="skill-icon">
-        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/>
-        </svg>
+      <div class="skill-card reveal">
+        <div class="skill-icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+            <path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/>
+          </svg>
+        </div>
+        <div class="skill-name">App Signing &amp; Keystore</div>
+        <div class="skill-level"><div class="skill-level-fill" style="width:88%"></div></div>
       </div>
-      <div class="skill-name">ProGuard / R8</div>
-      <div class="skill-level"><div class="skill-level-fill" style="width:72%"></div></div>
+      <div class="skill-card reveal">
+        <div class="skill-icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/>
+          </svg>
+        </div>
+        <div class="skill-name">ProGuard / R8</div>
+        <div class="skill-level"><div class="skill-level-fill" style="width:72%"></div></div>
+      </div>
     </div>
   </div>
 </section>
@@ -702,7 +845,8 @@ footer {
     <div class="project-card reveal">
       <div class="project-num">01</div>
       <div class="project-title">Getup ExerciseNow</div>
-      <p class="project-desc">A feature-rich fitness application offering personalised workouts, nutrition diet plans, and detailed progress tracking. Designed with smooth animations and an intuitive user interface.</p>
+      <div class="project-meta">Flutter Developer · Android &amp; iOS</div>
+      <p class="project-desc">A fitness application offering personalised workouts, nutrition diet plans, and detailed progress tracking. Built the UI and app logic in Flutter with MobX for state management, consumed REST APIs for workout/diet data, and used Firebase for user data and app services. Focused on smooth animations and an interface that stays fast as content grows.</p>
       <div class="project-tags">
         <span class="tag">Flutter</span>
         <span class="tag">Firebase</span>
@@ -713,7 +857,8 @@ footer {
     <div class="project-card reveal">
       <div class="project-num">02</div>
       <div class="project-title">Wave Tech Service</div>
-      <p class="project-desc">End-to-end service provider platform with Firebase real-time database, seamless payment gateway integration, booking flows, and service management dashboards.</p>
+      <div class="project-meta">Flutter Developer · Android &amp; iOS</div>
+      <p class="project-desc">A home-service marketplace app connecting customers with service providers. I implemented the booking flow, service management dashboards, and a payment gateway integration for in-app payments, backed by Firebase's real-time database so status updates reflect instantly for the customer. State managed with GetX.</p>
       <div class="project-tags">
         <span class="tag">Flutter</span>
         <span class="tag">Firebase</span>
@@ -724,7 +869,8 @@ footer {
     <div class="project-card reveal">
       <div class="project-num">03</div>
       <div class="project-title">Wave Partner App</div>
-      <p class="project-desc">Companion partner application for service providers — featuring real-time job notifications, accept/reject workflows, earnings tracking, and partner profile management.</p>
+      <div class="project-meta">Flutter Developer · Android &amp; iOS</div>
+      <p class="project-desc">The companion app for service providers on the Wave platform. Built real-time job notifications and accept/reject workflows on Firebase, an earnings-tracking screen, and partner profile management — sharing a backend and design language with the customer-facing Wave Tech Service app.</p>
       <div class="project-tags">
         <span class="tag">Flutter</span>
         <span class="tag">Firebase</span>
@@ -735,7 +881,8 @@ footer {
     <div class="project-card reveal">
       <div class="project-num">04</div>
       <div class="project-title">Just Connect</div>
-      <p class="project-desc">Educational mobile platform built for students — enabling course discovery, progress tracking, peer connectivity, and resource sharing in a clean, engaging interface.</p>
+      <div class="project-meta">Flutter Developer · Android &amp; iOS</div>
+      <p class="project-desc">An educational platform for students to discover courses, track progress, and connect with peers. Built with Flutter and the Provider package for state management, backed by Firebase and REST APIs, with a focus on a clean, distraction-free interface for browsing and resource sharing.</p>
       <div class="project-tags">
         <span class="tag">Flutter</span>
         <span class="tag">Firebase</span>
@@ -746,7 +893,8 @@ footer {
     <div class="project-card reveal">
       <div class="project-num">05</div>
       <div class="project-title">Glatro Customer App</div>
-      <p class="project-desc">Glatro Customer App is designed to provide customers with a fast, seamless, and reliable shopping experience. The app allows users to discover nearby vendors, browse products, place orders, make secure payments, and track deliveries in real time through an intuitive and responsive interface.</p>
+      <div class="project-meta">Flutter Developer · Android &amp; iOS · Current</div>
+      <p class="project-desc">The customer-facing app for the Glatro e-commerce platform. I work on vendor discovery with Google Maps, product browsing, cart and checkout, secure payment processing, and real-time order/delivery tracking. Built with Flutter and GetX, consuming REST APIs and Firebase services, with an emphasis on pixel-perfect, responsive UI.</p>
       <div class="project-tags">
         <span class="tag">Flutter</span>
         <span class="tag">Firebase</span>
@@ -758,7 +906,8 @@ footer {
     <div class="project-card reveal">
       <div class="project-num">06</div>
       <div class="project-title">Glatro Partner App</div>
-      <p class="project-desc">Glatro Delivery Partner app is designed for fast and efficient deliveries with smart navigation, order management, and seamless earning tracking for delivery partners.</p>
+      <div class="project-meta">Flutter Developer · Android &amp; iOS · Current</div>
+      <p class="project-desc">The delivery-partner app for Glatro. I built the navigation and delivery-route experience on Google Maps, order management screens, and earnings tracking for partners — sharing the same backend and GetX-based architecture as the customer app for consistency across the platform.</p>
       <div class="project-tags">
         <span class="tag">Flutter</span>
         <span class="tag">Firebase</span>
@@ -770,7 +919,8 @@ footer {
     <div class="project-card reveal">
       <div class="project-num">07</div>
       <div class="project-title">Glatro Vendor Partner</div>
-      <p class="project-desc">Glatro Vendor Partner is a smart business management app designed for vendors and retailers to manage their store operations efficiently on the Glatro platform.</p>
+      <div class="project-meta">Flutter Developer · Android &amp; iOS · Current</div>
+      <p class="project-desc">A store-management app for vendors and retailers on the Glatro platform — covering inventory management, incoming order handling, and store operations. Built with Flutter and GetX, integrated with the same backend as the customer and delivery-partner apps so vendors see orders update in real time.</p>
       <div class="project-tags">
         <span class="tag">Flutter</span>
         <span class="tag">Dart</span>
@@ -779,6 +929,68 @@ footer {
       </div>
     </div>
   </div>
+</section>
+
+<hr class="divider"/>
+
+<!-- SERVICES -->
+<section class="section" id="services">
+  <div class="section-header reveal">
+    <div class="section-tag">How I Can Help</div>
+    <h2 class="section-title">Flutter development, <em>end to end</em></h2>
+  </div>
+  <div class="services-grid">
+    <div class="service-card reveal">
+      <div class="service-icon">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M9 18h6"/></svg>
+      </div>
+      <div class="service-title">Flutter App Development</div>
+      <div class="service-desc">Building cross-platform Android &amp; iOS apps from a single Flutter codebase, from architecture through release.</div>
+    </div>
+    <div class="service-card reveal">
+      <div class="service-icon">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><ellipse cx="12" cy="12" rx="3" ry="3"/><path d="M12 2v3M12 19v3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M2 12h3M19 12h3M4.22 19.78l2.12-2.12M17.66 6.34l2.12-2.12"/></svg>
+      </div>
+      <div class="service-title">API &amp; Backend Integration</div>
+      <div class="service-desc">Connecting Flutter apps to REST APIs and backend services, with clean data and state-management layers.</div>
+    </div>
+    <div class="service-card reveal">
+      <div class="service-icon">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/></svg>
+      </div>
+      <div class="service-title">Firebase &amp; Real-Time Features</div>
+      <div class="service-desc">Authentication, real-time databases, push notifications and other Firebase services wired into the app.</div>
+    </div>
+    <div class="service-card reveal">
+      <div class="service-icon">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg>
+      </div>
+      <div class="service-title">Payment Gateway Integration</div>
+      <div class="service-desc">Implementing secure in-app payment flows, from checkout UI to gateway integration and order confirmation.</div>
+    </div>
+    <div class="service-card reveal">
+      <div class="service-icon">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      </div>
+      <div class="service-title">Google Maps &amp; Location</div>
+      <div class="service-desc">Vendor/store discovery, delivery tracking and location-based flows built on Google Maps.</div>
+    </div>
+    <div class="service-card reveal">
+      <div class="service-icon">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 1 0 0 20A10 10 0 0 0 12 2z"/><path d="M8 12l2.5 2.5L16 9"/></svg>
+      </div>
+      <div class="service-title">Play Store &amp; App Store Deployment</div>
+      <div class="service-desc">App signing, keystore management, ProGuard/R8 config, and getting builds published and approved.</div>
+    </div>
+    <div class="service-card reveal">
+      <div class="service-icon">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+      </div>
+      <div class="service-title">Maintenance &amp; Performance</div>
+      <div class="service-desc">Bug fixing, performance optimisation, and keeping an existing Flutter app healthy as it grows.</div>
+    </div>
+  </div>
+  <p class="availability-banner"><strong>Open to:</strong> full-time roles, contract work and freelance projects — remote or on-site, with companies and clients globally.</p>
 </section>
 
 <hr class="divider"/>
@@ -832,6 +1044,9 @@ footer {
   <div class="contact-wrap reveal">
     <div class="contact-left">
       <p>Whether you have a project in mind, a full-time opportunity, or just want to connect — I'm always happy to talk. Drop me a message through any of the channels below.</p>
+      <div class="hero-actions" style="margin-top:28px;">
+        <a href="mailto:np17531@gmail.com?subject=Let's%20work%20together" class="btn btn-amber">Discuss Your Project</a>
+      </div>
     </div>
     <div class="contact-links">
       <a href="mailto:np17531@gmail.com" class="contact-link">
@@ -875,6 +1090,7 @@ footer {
     </div>
   </div>
 </section>
+</main>
 
 <!-- FOOTER -->
 <footer>
